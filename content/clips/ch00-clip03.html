@@ -30,99 +30,88 @@
   <div class="clip-section-title">좌석 배치도</div>
   <div class="clip-section-content">
     <div style="background:var(--bg-white);border:1px solid var(--border);border-radius:16px;padding:30px 18px;box-shadow:var(--shadow-sm);overflow-x:auto">
-      <!-- 스크린 -->
-      <div style="max-width:440px;margin:0 auto 8px;background:var(--brand);color:#fff;text-align:center;padding:11px;border-radius:8px;font-weight:800;letter-spacing:6px;font-size:1.05rem">스크린</div>
-      <!-- 강사석 -->
-      <div style="max-width:150px;margin:0 auto 34px;border:2px solid var(--brand);color:var(--brand);text-align:center;padding:7px;border-radius:8px;font-weight:700;font-size:0.9rem">강사석</div>
 
-      <!-- 팀 묶음 5개 (각 묶음 = 세로책상 2 + 가로책상 1, 6인 배치) -->
-      <div style="display:grid;grid-template-columns:repeat(2,auto);justify-content:center;align-items:start;gap:34px 70px;min-width:300px">
-
-        <!-- 1팀 (앞-좌) -->
-        <div style="position:relative;width:88px;height:84px;justify-self:center">
-          <div style="position:absolute;inset:0;display:flex;flex-direction:column">
-            <div style="flex:1.4;display:flex;border:2px solid var(--brand);border-bottom:none;background:var(--brand-light)"><div style="flex:1;border-right:2px solid var(--brand)"></div><div style="flex:1"></div></div>
-            <div style="flex:1;border:2px solid var(--brand);background:var(--brand-light)"></div>
-          </div>
-          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-weight:800;font-size:1rem;color:var(--brand);z-index:2;text-shadow:0 0 5px #fff,0 0 5px #fff,0 0 5px #fff">1팀</div>
-          <span style="position:absolute;left:-13px;top:13px;width:11px;height:11px;border-radius:50%;background:var(--brand-silver)"></span>
-          <span style="position:absolute;left:-13px;top:38px;width:11px;height:11px;border-radius:50%;background:var(--brand-silver)"></span>
-          <span style="position:absolute;right:-13px;top:13px;width:11px;height:11px;border-radius:50%;background:var(--brand-silver)"></span>
-          <span style="position:absolute;right:-13px;top:38px;width:11px;height:11px;border-radius:50%;background:var(--brand-silver)"></span>
-          <span style="position:absolute;bottom:-13px;left:24px;width:11px;height:11px;border-radius:50%;background:var(--brand-silver)"></span>
-          <span style="position:absolute;bottom:-13px;right:24px;width:11px;height:11px;border-radius:50%;background:var(--brand-silver)"></span>
+      <div style="min-width:430px;max-width:560px;margin:0 auto">
+        <!-- 스크린 + 강사석 -->
+        <div style="display:flex;align-items:center;gap:22px;margin-bottom:34px">
+          <div style="flex:0 0 250px;border:2px solid var(--brand);border-radius:14px;text-align:center;padding:15px;font-weight:800;color:var(--brand);font-size:1.05rem;letter-spacing:6px">스크린</div>
+          <div style="flex:0 0 118px;border:2px solid var(--brand);border-radius:14px;text-align:center;padding:15px;font-weight:700;color:var(--brand)">강사석</div>
         </div>
 
-        <!-- 2팀 (앞-우) -->
-        <div style="position:relative;width:88px;height:84px;justify-self:center">
-          <div style="position:absolute;inset:0;display:flex;flex-direction:column">
-            <div style="flex:1.4;display:flex;border:2px solid var(--brand);border-bottom:none;background:var(--brand-light)"><div style="flex:1;border-right:2px solid var(--brand)"></div><div style="flex:1"></div></div>
-            <div style="flex:1;border:2px solid var(--brand);background:var(--brand-light)"></div>
-          </div>
-          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-weight:800;font-size:1rem;color:var(--brand);z-index:2;text-shadow:0 0 5px #fff,0 0 5px #fff,0 0 5px #fff">2팀</div>
-          <span style="position:absolute;left:-13px;top:13px;width:11px;height:11px;border-radius:50%;background:var(--brand-silver)"></span>
-          <span style="position:absolute;left:-13px;top:38px;width:11px;height:11px;border-radius:50%;background:var(--brand-silver)"></span>
-          <span style="position:absolute;right:-13px;top:13px;width:11px;height:11px;border-radius:50%;background:var(--brand-silver)"></span>
-          <span style="position:absolute;right:-13px;top:38px;width:11px;height:11px;border-radius:50%;background:var(--brand-silver)"></span>
-          <span style="position:absolute;bottom:-13px;left:24px;width:11px;height:11px;border-radius:50%;background:var(--brand-silver)"></span>
-          <span style="position:absolute;bottom:-13px;right:24px;width:11px;height:11px;border-radius:50%;background:var(--brand-silver)"></span>
-        </div>
+        <!-- 팀 묶음 (윗줄 1·2·3 / 아랫줄 4·5) -->
+        <div style="display:flex;flex-direction:column;align-items:center;gap:30px">
 
-        <!-- 4팀 (중간-좌) -->
-        <div style="position:relative;width:88px;height:84px;justify-self:center">
-          <div style="position:absolute;inset:0;display:flex;flex-direction:column">
-            <div style="flex:1.4;display:flex;border:2px solid var(--brand);border-bottom:none;background:var(--brand-light)"><div style="flex:1;border-right:2px solid var(--brand)"></div><div style="flex:1"></div></div>
-            <div style="flex:1;border:2px solid var(--brand);background:var(--brand-light)"></div>
-          </div>
-          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-weight:800;font-size:1rem;color:var(--brand);z-index:2;text-shadow:0 0 5px #fff,0 0 5px #fff,0 0 5px #fff">4팀</div>
-          <span style="position:absolute;left:-13px;top:13px;width:11px;height:11px;border-radius:50%;background:var(--brand-silver)"></span>
-          <span style="position:absolute;left:-13px;top:38px;width:11px;height:11px;border-radius:50%;background:var(--brand-silver)"></span>
-          <span style="position:absolute;right:-13px;top:13px;width:11px;height:11px;border-radius:50%;background:var(--brand-silver)"></span>
-          <span style="position:absolute;right:-13px;top:38px;width:11px;height:11px;border-radius:50%;background:var(--brand-silver)"></span>
-          <span style="position:absolute;bottom:-13px;left:24px;width:11px;height:11px;border-radius:50%;background:var(--brand-silver)"></span>
-          <span style="position:absolute;bottom:-13px;right:24px;width:11px;height:11px;border-radius:50%;background:var(--brand-silver)"></span>
-        </div>
+          <!-- 윗줄 -->
+          <div style="display:flex;justify-content:center;gap:40px">
 
-        <!-- 5팀 (중간-우) -->
-        <div style="position:relative;width:88px;height:84px;justify-self:center">
-          <div style="position:absolute;inset:0;display:flex;flex-direction:column">
-            <div style="flex:1.4;display:flex;border:2px solid var(--brand);border-bottom:none;background:var(--brand-light)"><div style="flex:1;border-right:2px solid var(--brand)"></div><div style="flex:1"></div></div>
-            <div style="flex:1;border:2px solid var(--brand);background:var(--brand-light)"></div>
-          </div>
-          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-weight:800;font-size:1rem;color:var(--brand);z-index:2;text-shadow:0 0 5px #fff,0 0 5px #fff,0 0 5px #fff">5팀</div>
-          <span style="position:absolute;left:-13px;top:13px;width:11px;height:11px;border-radius:50%;background:var(--brand-silver)"></span>
-          <span style="position:absolute;left:-13px;top:38px;width:11px;height:11px;border-radius:50%;background:var(--brand-silver)"></span>
-          <span style="position:absolute;right:-13px;top:13px;width:11px;height:11px;border-radius:50%;background:var(--brand-silver)"></span>
-          <span style="position:absolute;right:-13px;top:38px;width:11px;height:11px;border-radius:50%;background:var(--brand-silver)"></span>
-          <span style="position:absolute;bottom:-13px;left:24px;width:11px;height:11px;border-radius:50%;background:var(--brand-silver)"></span>
-          <span style="position:absolute;bottom:-13px;right:24px;width:11px;height:11px;border-radius:50%;background:var(--brand-silver)"></span>
-        </div>
+            <!-- 1팀 -->
+            <div style="position:relative;width:108px">
+              <div style="display:flex;gap:7px">
+                <div style="flex:1;height:86px;border:2px solid var(--text-heading);border-radius:10px;background:var(--bg-white)"></div>
+                <div style="flex:1;height:86px;border:2px solid var(--text-heading);border-radius:10px;background:var(--bg-white)"></div>
+              </div>
+              <div style="height:44px;border:2px solid var(--text-heading);border-radius:10px;background:var(--bg-white);margin-top:7px"></div>
+              <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:2.7rem;font-weight:900;color:var(--brand);line-height:1;pointer-events:none">1</div>
+            </div>
 
-        <!-- 3팀 (뒤·가운데) -->
-        <div style="position:relative;width:88px;height:84px;justify-self:center;grid-column:1 / -1">
-          <div style="position:absolute;inset:0;display:flex;flex-direction:column">
-            <div style="flex:1.4;display:flex;border:2px solid var(--brand);border-bottom:none;background:var(--brand-light)"><div style="flex:1;border-right:2px solid var(--brand)"></div><div style="flex:1"></div></div>
-            <div style="flex:1;border:2px solid var(--brand);background:var(--brand-light)"></div>
-          </div>
-          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-weight:800;font-size:1rem;color:var(--brand);z-index:2;text-shadow:0 0 5px #fff,0 0 5px #fff,0 0 5px #fff">3팀</div>
-          <span style="position:absolute;left:-13px;top:13px;width:11px;height:11px;border-radius:50%;background:var(--brand-silver)"></span>
-          <span style="position:absolute;left:-13px;top:38px;width:11px;height:11px;border-radius:50%;background:var(--brand-silver)"></span>
-          <span style="position:absolute;right:-13px;top:13px;width:11px;height:11px;border-radius:50%;background:var(--brand-silver)"></span>
-          <span style="position:absolute;right:-13px;top:38px;width:11px;height:11px;border-radius:50%;background:var(--brand-silver)"></span>
-          <span style="position:absolute;bottom:-13px;left:24px;width:11px;height:11px;border-radius:50%;background:var(--brand-silver)"></span>
-          <span style="position:absolute;bottom:-13px;right:24px;width:11px;height:11px;border-radius:50%;background:var(--brand-silver)"></span>
-        </div>
+            <!-- 2팀 -->
+            <div style="position:relative;width:108px">
+              <div style="display:flex;gap:7px">
+                <div style="flex:1;height:86px;border:2px solid var(--text-heading);border-radius:10px;background:var(--bg-white)"></div>
+                <div style="flex:1;height:86px;border:2px solid var(--text-heading);border-radius:10px;background:var(--bg-white)"></div>
+              </div>
+              <div style="height:44px;border:2px solid var(--text-heading);border-radius:10px;background:var(--bg-white);margin-top:7px"></div>
+              <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:2.7rem;font-weight:900;color:var(--brand);line-height:1;pointer-events:none">2</div>
+            </div>
 
+            <!-- 3팀 -->
+            <div style="position:relative;width:108px">
+              <div style="display:flex;gap:7px">
+                <div style="flex:1;height:86px;border:2px solid var(--text-heading);border-radius:10px;background:var(--bg-white)"></div>
+                <div style="flex:1;height:86px;border:2px solid var(--text-heading);border-radius:10px;background:var(--bg-white)"></div>
+              </div>
+              <div style="height:44px;border:2px solid var(--text-heading);border-radius:10px;background:var(--bg-white);margin-top:7px"></div>
+              <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:2.7rem;font-weight:900;color:var(--brand);line-height:1;pointer-events:none">3</div>
+            </div>
+
+          </div>
+
+          <!-- 아랫줄 -->
+          <div style="display:flex;justify-content:center;gap:40px">
+
+            <!-- 4팀 -->
+            <div style="position:relative;width:108px">
+              <div style="display:flex;gap:7px">
+                <div style="flex:1;height:86px;border:2px solid var(--text-heading);border-radius:10px;background:var(--bg-white)"></div>
+                <div style="flex:1;height:86px;border:2px solid var(--text-heading);border-radius:10px;background:var(--bg-white)"></div>
+              </div>
+              <div style="height:44px;border:2px solid var(--text-heading);border-radius:10px;background:var(--bg-white);margin-top:7px"></div>
+              <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:2.7rem;font-weight:900;color:var(--brand);line-height:1;pointer-events:none">4</div>
+            </div>
+
+            <!-- 5팀 -->
+            <div style="position:relative;width:108px">
+              <div style="display:flex;gap:7px">
+                <div style="flex:1;height:86px;border:2px solid var(--text-heading);border-radius:10px;background:var(--bg-white)"></div>
+                <div style="flex:1;height:86px;border:2px solid var(--text-heading);border-radius:10px;background:var(--bg-white)"></div>
+              </div>
+              <div style="height:44px;border:2px solid var(--text-heading);border-radius:10px;background:var(--bg-white);margin-top:7px"></div>
+              <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:2.7rem;font-weight:900;color:var(--brand);line-height:1;pointer-events:none">5</div>
+            </div>
+
+          </div>
+
+        </div>
       </div>
 
-      <div style="text-align:center;margin-top:30px;font-size:0.74rem;color:var(--text-muted)">⬆ 스크린·강사석 방향 &nbsp;·&nbsp; 한 팀 = 세로 책상 2개 + 가로 책상 1개 &nbsp;·&nbsp; ● = 좌석</div>
+      <div style="text-align:center;margin-top:28px;font-size:0.74rem;color:var(--text-muted)">⬆ 스크린·강사석 방향 &nbsp;·&nbsp; 한 팀 = 세로 책상 2개 + 가로 책상 1개</div>
     </div>
 
     <div class="tip-block" style="margin-top:16px">
       <div class="tip-block-title">좌석 형태 & 안내</div>
       <div class="tip-block-content">
         한 팀의 책상은 <strong>세로 긴 책상 2개 + 가로 긴 책상 1개</strong>를 ㄷ자에 가깝게 이어 붙인 형태로, 책상을 둘러싸고 앉습니다. 노트북 화면을 옆 사람과 공유하기 좋고, 통로로 <strong>강사·보조강사가 각 팀을 돌아다니며</strong> 케어합니다.<br><br>
-        <span style="font-size:0.8rem;color:var(--text-muted)">※ 책상은 <strong>6인이 앉는 배치</strong>이지만, 실제로는 <strong>팀당 5명</strong>이 착석할 예정입니다. 또한 위 배치도의 팀 위치는 <strong>강의장 사진을 기준으로 한 대략적 배치</strong>이며, 최종 좌석·팀 명단은 현장 표지판/출력물을 따라 주세요.</span>
+        <span style="font-size:0.8rem;color:var(--text-muted)">※ 책상은 <strong>6인이 앉는 배치</strong>이지만, 실제로는 <strong>팀당 5명</strong>이 착석할 예정입니다. 최종 좌석·팀 명단은 현장 표지판/출력물을 따라 주세요.</span>
       </div>
     </div>
   </div>
