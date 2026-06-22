@@ -4,7 +4,7 @@
 import { CURRICULUM } from '../../data/curriculum.js';
 import { buildTimeline, getTimeOverride } from '../../data/schedule.js';
 import { STATE } from '../state.js';
-import { getClassInfo, BATCH_META, isInhwawonBatch, getCourseTitle, getCourseSubtitle, isCeoLikeBatch } from '../ui.js';
+import { getClassInfo, BATCH_META, isInhwawonBatch, getCourseTitle, isCeoLikeBatch } from '../ui.js';
 import { initIcons } from '../icons.js';
 
 export function renderHome(el) {
