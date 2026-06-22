@@ -1,0 +1,113 @@
+<div class="info-block" style="margin-bottom:18px;background:linear-gradient(135deg, var(--brand-light), rgba(165,0,52,0.03));border-left:4px solid var(--brand)">
+  <div style="font-size:0.85rem;color:var(--text-body);line-height:1.7">🧩 <strong>스킬(Skill)</strong>은 "한 번 만들면 다음엔 한 줄 요청으로 끝나는" 재사용 묶음입니다. 실습 ④에서 만든 <strong>Gemini API 웹앱</strong>의 패턴을 스킬로 등록해 두면, 다음엔 <strong>"Gemini로 ○○하는 웹앱 만들어줘"</strong> 한마디에 같은 품질의 결과가 자동으로 나옵니다. 이 섹션은 자율 심화 시간에 직접 따라하거나, 끝난 뒤 혼자 복습할 때 보는 <strong>참고 자료</strong>입니다.</div>
+</div>
+
+<div class="clip-overview">반복하는 작업을 매번 처음부터 설명하지 않도록 <strong>스킬로 박제</strong>합니다. 핵심은 "코드를 다시 짜는 게 아니라, <strong>한 번 검증된 패턴을 AI에게 기억시키는 것</strong>". 공통 소재로 감을 잡은 뒤 <strong>본인 실제 업무</strong>로 바꿔 적용하는 것이 오늘의 목표입니다.</div>
+
+<div class="clip-section">
+  <div class="clip-section-title">🤔 스킬이란 — "설명을 매번 반복하지 않는 법"</div>
+  <div class="clip-section-content">
+    <p style="margin-bottom:12px">실습 ④에서 우리는 <strong>'Gemini-API_레퍼런스.md'</strong>를 작업 폴더에 넣고 "이 패턴대로 회의록 정리기를 만들어줘"라고 시켰습니다. 그런데 비슷한 웹앱을 또 만들 때마다 <strong>같은 레퍼런스를 다시 챙기고, 같은 규칙을 다시 설명</strong>해야 한다면 번거롭습니다.</p>
+    <p style="margin-bottom:12px"><strong>스킬</strong>은 바로 그 "매번 설명하던 것"을 에이전트의 서랍에 넣어두는 일입니다. 한 번 등록하면, 다음부터는 <strong>한 줄 요청</strong>만으로 에이전트가 알아서 그 패턴(단일 HTML · 모델 ID · API 키 입력란 · 에러 처리 · JSON 출력)을 꺼내 씁니다.</p>
+    <div class="info-block" style="background:var(--bg-offwhite);border-left:3px solid var(--text-muted)">
+      <div style="font-size:0.82rem;color:var(--text-secondary);line-height:1.7">쉽게 말해 — <strong>실습 = 일을 한 번 시키는 것</strong>, <strong>스킬 = 그 일을 시키는 방법을 통째로 저장해 두는 것</strong>. 그래서 스킬을 만들면 "다음엔 안 해도 된다"가 성립합니다.</div>
+    </div>
+  </div>
+</div>
+
+<div class="clip-section">
+  <div class="clip-section-title">💡 왜 '업무 자동화'보다 '스킬 만들기'가 더 쉬운가</div>
+  <div class="clip-section-content">
+    <p style="margin-bottom:12px">"내 업무를 자동화해줘"는 막막합니다 — 기준이 머릿속에만 있고 말로 풀기 어렵기 때문입니다. 반면 <strong>스킬은 '이미 검증된 결과물'을 그대로 본보기로 삼습니다.</strong> 기준(참고자료)이 손에 잡히니 AI도 헤매지 않습니다.</p>
+    <table class="comparison-table" style="margin-top:8px">
+      <thead><tr><th style="width:34%">구분</th><th>맨손 자동화 요청</th><th>스킬로 만들기</th></tr></thead>
+      <tbody>
+        <tr><td><strong>기준</strong></td><td>머릿속에만 있음 (말로 풀기 어려움)</td><td><strong>참고자료·완성 샘플</strong>이 명확</td></tr>
+        <tr><td><strong>결과 품질</strong></td><td>그때그때 다름</td><td>검증된 패턴이라 <strong>일정</strong></td></tr>
+        <tr><td><strong>재사용</strong></td><td>매번 처음부터 설명</td><td><strong>한 줄 요청</strong>이면 끝</td></tr>
+      </tbody>
+    </table>
+    <div class="tip-block" style="margin-top:14px">
+      <div class="tip-block-title">💡 그래서 첫 스킬은 '코드 재사용'부터</div>
+      <div class="tip-block-content">
+        막연한 업무 자동화보다, <strong>실습 ④의 Gemini API 패턴처럼 기준이 또렷한 것</strong>부터 스킬로 만드는 것이 성공률이 높습니다. 일단 한 번 만들어 "이게 되는구나"를 체감한 뒤, 점점 <strong>내 업무 소재</strong>로 옮겨가세요.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="clip-section">
+  <div class="clip-section-title">🛠️ 단계 1 — 레퍼런스를 스킬로 등록하기</div>
+  <div class="clip-section-content">
+    <p style="margin-bottom:12px">실습 ④를 막 끝낸 상태(작업 폴더에 <strong>'Gemini-API_레퍼런스.md'</strong>가 있고, 회의록 정리기를 만든 직후)에서 아래 프롬프트를 그대로 붙여넣습니다. 에이전트가 레퍼런스의 핵심 패턴을 스킬로 박제하고, <strong>"앞으로 어떻게 부르면 되는지"</strong>까지 알려줍니다.</p>
+    <div style="margin:14px 0 6px 0;font-weight:700;font-size:0.92rem;color:var(--text-heading)">📋 [복붙] 심화 ① — 스킬 제작</div>
+    <div style="background:#1a1a1a;color:#e6e6e6;border-radius:10px;padding:16px 18px;font-family:'SF Mono','Menlo',monospace;font-size:0.8rem;line-height:1.7;overflow-x:auto;margin:6px 0">
+<pre style="margin:0;white-space:pre-wrap;color:#e6e6e6">방금 'Gemini-API_레퍼런스.md'를 참고해서 AI 웹앱을 만들었잖아.
+앞으로 이런 'Gemini API로 ○○하는 웹앱 만들기' 작업을 반복할 거야.
+
+이 레퍼런스를 스킬(skill)로 등록해줘.
+그래서 다음에 내가 'Gemini로 △△하는 웹앱 만들어줘'라고만 하면,
+이 레퍼런스의 패턴(단일 HTML, gemini-3.5-flash 모델, API 키 입력란, 에러 처리, JSON 출력 등)을
+자동으로 따라서 만들 수 있게 해줘.
+
+스킬을 어떻게 만들었는지, 그리고 앞으로 어떻게 부르면 되는지도 설명해줘.</pre>
+    </div>
+    <div class="info-block" style="margin-top:8px;background:var(--bg-offwhite);border-left:3px solid var(--text-muted)">
+      <div style="font-size:0.82rem;color:var(--text-secondary);line-height:1.7">에이전트는 레퍼런스를 읽고 <strong>스킬 파일(설명 + 패턴 규칙)</strong>을 만들어 저장합니다. 끝나면 "이렇게 만들었고, 다음엔 이렇게 부르면 됩니다"라는 안내가 따라옵니다 — 그 호출 방법을 기억해 두세요.</div>
+    </div>
+  </div>
+</div>
+
+<div class="clip-section">
+  <div class="clip-section-title">⚡ 단계 2 — 만든 스킬로 새 웹앱을 '한 줄'로</div>
+  <div class="clip-section-content">
+    <p style="margin-bottom:12px">이제 스킬이 등록됐으니, 새 웹앱은 레퍼런스를 다시 챙길 필요 없이 <strong>한 줄 요청</strong>으로 만들어집니다. '고객 문의 분류기'를 예로 시켜 봅니다 — 같은 패턴(API 키 입력란 · gemini-3.5-flash · 에러 처리)이 자동으로 적용되는지 확인하세요.</p>
+    <div style="margin:14px 0 6px 0;font-weight:700;font-size:0.92rem;color:var(--text-heading)">📋 [복붙] 심화 ② — 스킬 활용: 고객 문의 분류기</div>
+    <div style="background:#1a1a1a;color:#e6e6e6;border-radius:10px;padding:16px 18px;font-family:'SF Mono','Menlo',monospace;font-size:0.8rem;line-height:1.7;overflow-x:auto;margin:6px 0">
+<pre style="margin:0;white-space:pre-wrap;color:#e6e6e6">방금 만든 스킬을 사용해서, '고객 문의 분류기' 단일 HTML 웹앱을 만들어줘.
+
+- 입력: 고객 문의 내용
+- 출력: 카테고리 / 긴급도 / 추천 답변 (표나 카드 형태로)
+- 나머지 규칙(API 키 입력란, gemini-3.5-flash 모델, 에러 처리 등)은 스킬 패턴 그대로 따라줘.
+
+다 만들면 브라우저로 열어서 보여줘.</pre>
+    </div>
+    <div class="info-block" style="margin-top:8px;background:linear-gradient(135deg, var(--brand-light), rgba(165,0,52,0.03));border-left:4px solid var(--brand)">
+      <div style="font-size:0.85rem;color:var(--text-body);line-height:1.7">👀 <strong>핵심 체감 포인트</strong> — 두 번째 웹앱은 레퍼런스를 한 번도 언급하지 않았는데도 똑같은 골격으로 나옵니다. 이것이 <strong>"한 번 만들면 다음엔 설명 안 해도 된다"</strong>는 스킬의 힘입니다.</div>
+    </div>
+  </div>
+</div>
+
+<div class="clip-section">
+  <div class="clip-section-title">🎯 자율 실습 — 이번엔 '내 업무'로</div>
+  <div class="clip-section-content">
+    <p style="margin-bottom:12px">공통 소재로 감을 잡았다면, 이제 <strong>본인이 앞으로도 반복할 일</strong>을 하나 골라 스킬로 만들어 보세요. "내 업무에서 매번 똑같이 하는 일"을 떠올리는 것이 시작입니다.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:8px 0">
+      <div style="background:var(--bg-white);border:1px solid var(--border);border-radius:var(--radius);padding:18px;border-top:3px solid var(--brand)">
+        <div style="font-weight:700;color:var(--text-heading);margin-bottom:6px">📑 반복 보고서 양식</div>
+        <div style="font-size:0.8rem;color:var(--text-secondary);line-height:1.6">주간·월간 보고서의 <strong>고정 양식</strong>을 스킬로. 다음엔 "이번 주 보고서 초안"만 말하면 형식 맞춰 나옵니다.</div>
+      </div>
+      <div style="background:var(--bg-white);border:1px solid var(--border);border-radius:var(--radius);padding:18px;border-top:3px solid var(--brand-gold)">
+        <div style="font-weight:700;color:var(--text-heading);margin-bottom:6px">✅ 점검·체크리스트 절차</div>
+        <div style="font-size:0.8rem;color:var(--text-secondary);line-height:1.6">매번 같은 순서로 확인하는 <strong>점검 절차</strong>를 스킬로. 누락 없이 같은 기준으로 검토하게 됩니다.</div>
+      </div>
+      <div style="background:var(--bg-white);border:1px solid var(--border);border-radius:var(--radius);padding:18px;border-top:3px solid var(--brand-silver)">
+        <div style="font-weight:700;color:var(--text-heading);margin-bottom:6px">🔎 자료조사 흐름</div>
+        <div style="font-size:0.8rem;color:var(--text-secondary);line-height:1.6">실습 ③ 같은 <strong>조사 → 출처 포함 보고서</strong> 흐름을 스킬로. 주제만 바꿔 같은 품질로 반복 생산.</div>
+      </div>
+    </div>
+    <div class="tip-block warning" style="margin-top:14px">
+      <div class="tip-block-title">⚠️ 자율 실습 팁 — 기준이 또렷한 것부터</div>
+      <div class="tip-block-content">
+        처음부터 거창한 업무를 스킬로 만들려 하면 막힙니다. <strong>참고할 완성 샘플이나 명확한 양식이 있는 일</strong>부터 시작하세요. 그리고 만든 스킬은 한 번 써보며 <strong>결과를 검증</strong>한 뒤, 부족한 규칙을 조금씩 보강하면 됩니다.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="tip-block" style="margin-top:18px">
+  <div class="tip-block-title">✅ 한 줄 정리</div>
+  <div class="tip-block-content">
+    스킬 = <strong>재사용</strong>. "한 번 만들면 다음엔 설명 안 해도 된다"가 핵심 메시지입니다. 오늘은 <strong>기준이 명확한 코드 패턴(④ Gemini API)</strong>으로 감을 잡고, 자율 실습에서 <strong>내 업무</strong>로 한 걸음 옮겨 가세요.
+  </div>
+</div>

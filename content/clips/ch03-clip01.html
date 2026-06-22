@@ -1,113 +1,177 @@
-<div class="info-block" style="margin-bottom:18px;background:linear-gradient(135deg, var(--brand-light), rgba(165,0,52,0.03));border-left:4px solid var(--brand)">
-  <div style="font-size:0.85rem;color:var(--text-body);line-height:1.7">🧩 <strong>스킬(Skill)</strong>은 "한 번 만들면 다음엔 한 줄 요청으로 끝나는" 재사용 묶음입니다. 실습 ④에서 만든 <strong>Gemini API 웹앱</strong>의 패턴을 스킬로 등록해 두면, 다음엔 <strong>"Gemini로 ○○하는 웹앱 만들어줘"</strong> 한마디에 같은 품질의 결과가 자동으로 나옵니다. 이 섹션은 자율 심화 시간에 직접 따라하거나, 끝난 뒤 혼자 복습할 때 보는 <strong>참고 자료</strong>입니다.</div>
+
+<div class="product-hero">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/NotebookLM_logo.svg" alt="NotebookLM">
+  <div class="product-hero-info">
+    <div class="product-hero-name">Google NotebookLM</div>
+    <div class="product-hero-desc">문서 기반 AI 연구 도우미 — 컨텍스트 엔지니어링 플랫폼</div>
+  </div>
+  <a class="product-hero-link" href="https://notebooklm.google.com" target="_blank">notebooklm.google.com →</a>
 </div>
-
-<div class="clip-overview">반복하는 작업을 매번 처음부터 설명하지 않도록 <strong>스킬로 박제</strong>합니다. 핵심은 "코드를 다시 짜는 게 아니라, <strong>한 번 검증된 패턴을 AI에게 기억시키는 것</strong>". 공통 소재로 감을 잡은 뒤 <strong>본인 실제 업무</strong>로 바꿔 적용하는 것이 오늘의 목표입니다.</div>
-
-<div class="clip-section">
-  <div class="clip-section-title">🤔 스킬이란 — "설명을 매번 반복하지 않는 법"</div>
-  <div class="clip-section-content">
-    <p style="margin-bottom:12px">실습 ④에서 우리는 <strong>'Gemini-API_레퍼런스.md'</strong>를 작업 폴더에 넣고 "이 패턴대로 회의록 정리기를 만들어줘"라고 시켰습니다. 그런데 비슷한 웹앱을 또 만들 때마다 <strong>같은 레퍼런스를 다시 챙기고, 같은 규칙을 다시 설명</strong>해야 한다면 번거롭습니다.</p>
-    <p style="margin-bottom:12px"><strong>스킬</strong>은 바로 그 "매번 설명하던 것"을 에이전트의 서랍에 넣어두는 일입니다. 한 번 등록하면, 다음부터는 <strong>한 줄 요청</strong>만으로 에이전트가 알아서 그 패턴(단일 HTML · 모델 ID · API 키 입력란 · 에러 처리 · JSON 출력)을 꺼내 씁니다.</p>
-    <div class="info-block" style="background:var(--bg-offwhite);border-left:3px solid var(--text-muted)">
-      <div style="font-size:0.82rem;color:var(--text-secondary);line-height:1.7">쉽게 말해 — <strong>실습 = 일을 한 번 시키는 것</strong>, <strong>스킬 = 그 일을 시키는 방법을 통째로 저장해 두는 것</strong>. 그래서 스킬을 만들면 "다음엔 안 해도 된다"가 성립합니다.</div>
-    </div>
+<div class="clip-overview">Google NotebookLM의 최신 기능과 활용법을 소개합니다. 컨텍스트 엔지니어링의 대표적인 실습 플랫폼입니다.</div>
+<div style="background:var(--brand-light);border-left:3px solid var(--brand);border-radius:12px;padding:20px 24px;margin-bottom:24px">
+  <div style="font-weight:700;font-size:1rem;margin-bottom:12px">이 실습에서는</div>
+  <div style="font-size:0.85rem;line-height:1.8;color:var(--text)">
+    NotebookLM의 핵심 개념(문서 기반 AI, 출처 인용, 멀티 소스)을 이해합니다<br>
+    Studio 패널의 다양한 출력 기능(오디오 오버뷰, 동영상 개요, 마인드맵, 슬라이드, 보고서, 플래시카드, 퀴즈, 인포그래픽, 데이터 표)을 알아봅니다<br>
+    Gemini(범용)와 NotebookLM(전용)의 차이와 활용 시나리오를 구분합니다
   </div>
 </div>
-
 <div class="clip-section">
-  <div class="clip-section-title">💡 왜 '업무 자동화'보다 '스킬 만들기'가 더 쉬운가</div>
+  <div class="clip-section-title">NotebookLM이란?</div>
   <div class="clip-section-content">
-    <p style="margin-bottom:12px">"내 업무를 자동화해줘"는 막막합니다 — 기준이 머릿속에만 있고 말로 풀기 어렵기 때문입니다. 반면 <strong>스킬은 '이미 검증된 결과물'을 그대로 본보기로 삼습니다.</strong> 기준(참고자료)이 손에 잡히니 AI도 헤매지 않습니다.</p>
-    <table class="comparison-table" style="margin-top:8px">
-      <thead><tr><th style="width:34%">구분</th><th>맨손 자동화 요청</th><th>스킬로 만들기</th></tr></thead>
+    <ul>
+      <li><strong>문서 기반 AI 연구 도우미:</strong> 업로드한 문서만을 근거로 답변하는 RAG 기반 서비스</li>
+      <li><strong>출처 인용:</strong> 모든 답변에 원본 문서의 출처 번호가 표시 — 클릭하면 해당 부분으로 이동</li>
+      <li><strong>할루시네이션 최소화:</strong> 학습 데이터가 아닌, 내가 제공한 자료만으로 답변하므로 신뢰성이 높음</li>
+      <li><strong>멀티 소스:</strong> PDF, Google Docs, 웹 URL, YouTube 등 여러 소스를 동시 분석 (이미지, 그래프 포함 PDF도 인식)</li>
+      <li><strong>에이전틱 채팅(2026.6 업데이트):</strong> Gemini 3.5 + Antigravity 기반으로 한층 강력해졌습니다. 각 노트북에 <strong>보안 클라우드 컴퓨터</strong>가 탑재되어 직접 코드를 작성·실행하고(100여 개 큐레이션 스킬), 막연한 아이디어만 있어도 채팅에서 소스를 찾아 모아줍니다</li>
+    </ul>
+  </div>
+</div>
+<div class="clip-section">
+  <div class="clip-section-title">Gemini vs NotebookLM — 무엇이 다른가</div>
+  <div class="clip-section-content">
+    <p style="margin-bottom:14px">같은 Google AI이지만 <strong>용도와 작동 방식이 근본적으로 다릅니다.</strong> 목적에 맞는 도구를 선택하는 것이 핵심입니다.</p>
+    <table class="comparison-table">
+      <thead><tr><th style="width:18%">구분</th><th>Gemini</th><th>NotebookLM</th></tr></thead>
       <tbody>
-        <tr><td><strong>기준</strong></td><td>머릿속에만 있음 (말로 풀기 어려움)</td><td><strong>참고자료·완성 샘플</strong>이 명확</td></tr>
-        <tr><td><strong>결과 품질</strong></td><td>그때그때 다름</td><td>검증된 패턴이라 <strong>일정</strong></td></tr>
-        <tr><td><strong>재사용</strong></td><td>매번 처음부터 설명</td><td><strong>한 줄 요청</strong>이면 끝</td></tr>
+        <tr>
+          <td><strong>지식 범위</strong></td>
+          <td>AI 전체 학습 데이터 (범용)</td>
+          <td>내가 업로드한 문서만 (전용)</td>
+        </tr>
+        <tr>
+          <td><strong>출처</strong></td>
+          <td>명시하지 않는 경우 많음</td>
+          <td>모든 답변에 원본 출처 번호 표시</td>
+        </tr>
+        <tr>
+          <td><strong>할루시네이션</strong></td>
+          <td>발생 가능</td>
+          <td>최소화 (문서 기반)</td>
+        </tr>
+        <tr>
+          <td><strong>산출물</strong></td>
+          <td>텍스트, 이미지, 코드</td>
+          <td>오디오·동영상 개요, 마인드맵, 슬라이드, 보고서, 플래시카드·퀴즈, 인포그래픽, 데이터 표 + 다운로드 형식(PDF·DOCX·XLSX·PPTX·CSV 등)</td>
+        </tr>
+        <tr>
+          <td><strong>주요 용도</strong></td>
+          <td>범용 AI 비서</td>
+          <td>문서 기반 리서치 & 콘텐츠 생성</td>
+        </tr>
+        <tr>
+          <td><strong>리서치</strong></td>
+          <td>Deep Research (범용 웹)</td>
+          <td>Fast / Deep Research (문서 + 웹)</td>
+        </tr>
       </tbody>
     </table>
+    <div style="background:var(--bg-offwhite);border-radius:10px;padding:14px 20px;margin-top:14px">
+      <div style="font-size:0.82rem;color:var(--text-secondary);line-height:1.7">
+        <strong style="color:var(--text-heading)">선택 기준:</strong> 열린 질문("AI 트렌드 알려줘")은 <strong>Gemini</strong>, 내 자료 기반 분석("이 보고서에서 핵심 3가지는?")은 <strong>NotebookLM</strong>이 적합합니다. 기밀 문서를 다루거나, 출처가 중요한 의사결정 지원에는 NotebookLM이 압도적으로 유리합니다.
+      </div>
+    </div>
+  </div>
+</div>
+<div class="clip-section">
+  <div class="clip-section-title">Studio 패널 — 다양한 출력 기능</div>
+  <div style="margin:0 0 16px;border-radius:var(--radius);overflow:hidden;border:1px solid var(--border)">
+    <img src="/img/nlm/nlm_03_studio.png" alt="NotebookLM 스튜디오 패널" style="width:100%;display:block" loading="lazy">
+    <p style="font-size:0.8rem;color:var(--text-muted);padding:8px 12px;background:var(--bg-offwhite);border-top:1px solid var(--border)">스튜디오 패널 — AI 오디오 오버뷰·슬라이드·동영상 개요·마인드맵·보고서·플래시카드·퀴즈·인포그래픽·데이터 표 9종 출력 (2026.6 실측)</p>
+  </div>
+  <div class="clip-section-content">
+    <table class="comparison-table">
+      <thead><tr><th>기능</th><th>설명</th><th>활용 시나리오</th></tr></thead>
+      <tbody>
+        <tr><td><strong>AI 오디오 오버뷰</strong></td><td>두 명의 AI 진행자가 문서를 팟캐스트 형태로 대화</td><td>이동 중 보고서 파악, "듣는 보고서"</td></tr>
+        <tr><td><strong>동영상 개요</strong></td><td>AI가 내레이션 + 슬라이드 영상을 자동 생성 (Cinematic Video Overview 지원)</td><td>팀 공유용 요약 영상, 교육 자료</td></tr>
+        <tr><td><strong>마인드맵</strong></td><td>문서 내 개념 간 관계를 시각적 마인드맵으로 표현</td><td>복잡한 주제 구조 파악, 전략 맵핑</td></tr>
+        <tr><td><strong>슬라이드 자료</strong></td><td>문서 내용을 프레젠테이션 슬라이드로 자동 변환 (PPTX 다운로드 가능)</td><td>보고서 → 발표자료 즉시 생성</td></tr>
+        <tr><td><strong>인포그래픽</strong></td><td>핵심 내용을 한 장의 시각 자료로 압축</td><td>요약 카드, SNS·회의용 한 장 요약</td></tr>
+        <tr><td><strong>보고서</strong></td><td>브리핑 문서, 스터디 가이드, FAQ, 타임라인 등 목적별 보고서 자동 생성</td><td>회의 자료, 교육 가이드, 요약 문서 즉시 생성</td></tr>
+        <tr><td><strong>플래시카드 · 퀴즈</strong></td><td>소스 내용을 학습용 암기 카드·문제로 자동 변환</td><td>학습 점검, 교육 콘텐츠, 자기 테스트</td></tr>
+        <tr><td><strong>데이터 표</strong></td><td>소스 데이터를 구조화된 표로 변환, Google Sheets·Excel 내보내기</td><td>데이터 비교·정리, 스프레드시트 연동</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:0.78rem;color:var(--text-secondary);margin-top:12px">스튜디오 패널에서 AI 오디오 오버뷰를 들으면서 동시에 마인드맵을 탐색할 수 있습니다.</p>
     <div class="tip-block" style="margin-top:14px">
-      <div class="tip-block-title">💡 그래서 첫 스킬은 '코드 재사용'부터</div>
-      <div class="tip-block-content">
-        막연한 업무 자동화보다, <strong>실습 ④의 Gemini API 패턴처럼 기준이 또렷한 것</strong>부터 스킬로 만드는 것이 성공률이 높습니다. 일단 한 번 만들어 "이게 되는구나"를 체감한 뒤, 점점 <strong>내 업무 소재</strong>로 옮겨가세요.
-      </div>
+      <div class="tip-block-title">2026.6 신규 — 다양한 다운로드 형식 + 생성 후 편집</div>
+      <div class="tip-block-content">이제 채팅에서 결과물을 더 많은 형식으로 만들고 스튜디오 패널에서 바로 다운로드할 수 있습니다. <strong>차트·데이터 시각화(PNG·SVG), 문서(PDF·DOCX·Markdown·TXT), 이미지(Nano Banana, PNG·JPG·GIF), 구조화 데이터(CSV·JSON), Excel(XLSX), PowerPoint(PPTX)</strong>를 지원하며, <strong>생성된 결과물을 다시 편집</strong>할 수도 있습니다.</div>
     </div>
   </div>
 </div>
-
 <div class="clip-section">
-  <div class="clip-section-title">🛠️ 단계 1 — 레퍼런스를 스킬로 등록하기</div>
+  <div class="clip-section-title">Studio vs Chat — 두 가지 사용 방식</div>
   <div class="clip-section-content">
-    <p style="margin-bottom:12px">실습 ④를 막 끝낸 상태(작업 폴더에 <strong>'Gemini-API_레퍼런스.md'</strong>가 있고, 회의록 정리기를 만든 직후)에서 아래 프롬프트를 그대로 붙여넣습니다. 에이전트가 레퍼런스의 핵심 패턴을 스킬로 박제하고, <strong>"앞으로 어떻게 부르면 되는지"</strong>까지 알려줍니다.</p>
-    <div style="margin:14px 0 6px 0;font-weight:700;font-size:0.92rem;color:var(--text-heading)">📋 [복붙] 심화 ① — 스킬 제작</div>
-    <div style="background:#1a1a1a;color:#e6e6e6;border-radius:10px;padding:16px 18px;font-family:'SF Mono','Menlo',monospace;font-size:0.8rem;line-height:1.7;overflow-x:auto;margin:6px 0">
-<pre style="margin:0;white-space:pre-wrap;color:#e6e6e6">방금 'Gemini-API_레퍼런스.md'를 참고해서 AI 웹앱을 만들었잖아.
-앞으로 이런 'Gemini API로 ○○하는 웹앱 만들기' 작업을 반복할 거야.
-
-이 레퍼런스를 스킬(skill)로 등록해줘.
-그래서 다음에 내가 'Gemini로 △△하는 웹앱 만들어줘'라고만 하면,
-이 레퍼런스의 패턴(단일 HTML, gemini-3.5-flash 모델, API 키 입력란, 에러 처리, JSON 출력 등)을
-자동으로 따라서 만들 수 있게 해줘.
-
-스킬을 어떻게 만들었는지, 그리고 앞으로 어떻게 부르면 되는지도 설명해줘.</pre>
-    </div>
-    <div class="info-block" style="margin-top:8px;background:var(--bg-offwhite);border-left:3px solid var(--text-muted)">
-      <div style="font-size:0.82rem;color:var(--text-secondary);line-height:1.7">에이전트는 레퍼런스를 읽고 <strong>스킬 파일(설명 + 패턴 규칙)</strong>을 만들어 저장합니다. 끝나면 "이렇게 만들었고, 다음엔 이렇게 부르면 됩니다"라는 안내가 따라옵니다 — 그 호출 방법을 기억해 두세요.</div>
-    </div>
+    <table class="comparison-table">
+      <thead><tr><th style="width:20%">구분</th><th>Studio (스튜디오)</th><th>Chat (채팅)</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>성격</strong></td>
+          <td><strong>구조화된 산출물(Curated Output)</strong> — AI가 소스를 분석하여 정리된 결과물을 생성</td>
+          <td><strong>실시간 대화(Live Conversation)</strong> — 실시간 질의응답으로 원하는 정보를 탐색</td>
+        </tr>
+        <tr>
+          <td><strong>결과물</strong></td>
+          <td>AI 오디오 오버뷰, 슬라이드, 마인드맵, 보고서, 데이터 표 등</td>
+          <td>텍스트 답변 + 출처 각주 (클릭하면 원문 확인)</td>
+        </tr>
+        <tr>
+          <td><strong>용도</strong></td>
+          <td>정리된 산출물이 필요할 때 (공유, 프레젠테이션, 요약)</td>
+          <td>자료를 깊이 탐색하거나 특정 질문에 답을 찾을 때</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
-
 <div class="clip-section">
-  <div class="clip-section-title">⚡ 단계 2 — 만든 스킬로 새 웹앱을 '한 줄'로</div>
+  <div class="clip-section-title">접속 및 시작</div>
   <div class="clip-section-content">
-    <p style="margin-bottom:12px">이제 스킬이 등록됐으니, 새 웹앱은 레퍼런스를 다시 챙길 필요 없이 <strong>한 줄 요청</strong>으로 만들어집니다. '고객 문의 분류기'를 예로 시켜 봅니다 — 같은 패턴(API 키 입력란 · gemini-3.5-flash · 에러 처리)이 자동으로 적용되는지 확인하세요.</p>
-    <div style="margin:14px 0 6px 0;font-weight:700;font-size:0.92rem;color:var(--text-heading)">📋 [복붙] 심화 ② — 스킬 활용: 고객 문의 분류기</div>
-    <div style="background:#1a1a1a;color:#e6e6e6;border-radius:10px;padding:16px 18px;font-family:'SF Mono','Menlo',monospace;font-size:0.8rem;line-height:1.7;overflow-x:auto;margin:6px 0">
-<pre style="margin:0;white-space:pre-wrap;color:#e6e6e6">방금 만든 스킬을 사용해서, '고객 문의 분류기' 단일 HTML 웹앱을 만들어줘.
-
-- 입력: 고객 문의 내용
-- 출력: 카테고리 / 긴급도 / 추천 답변 (표나 카드 형태로)
-- 나머지 규칙(API 키 입력란, gemini-3.5-flash 모델, 에러 처리 등)은 스킬 패턴 그대로 따라줘.
-
-다 만들면 브라우저로 열어서 보여줘.</pre>
+    <ul>
+      <li>웹: <a href="https://notebooklm.google.com" target="_blank">notebooklm.google.com</a> 접속 → Google 계정으로 로그인</li>
+      <li>"새 노트북" 클릭 → 소스 추가 (PDF, Docs, URL 등)</li>
+      <li>소스 업로드 후 바로 질문 시작 가능</li>
+    </ul>
+    <div style="margin:16px 0;border-radius:var(--radius);overflow:hidden;border:1px solid var(--border)">
+      <img src="/img/nlm/nlm_01_home.png" alt="NotebookLM 홈 화면" style="width:100%;display:block" loading="lazy">
+      <p style="font-size:0.8rem;color:var(--text-muted);padding:8px 12px;background:var(--bg-offwhite);border-top:1px solid var(--border)">NotebookLM 홈 — 추천 노트북과 내 노트북 목록이 표시됩니다. '+ 새로 만들기'를 클릭하여 새 노트북을 생성합니다 (2026.6 실측)</p>
     </div>
-    <div class="info-block" style="margin-top:8px;background:linear-gradient(135deg, var(--brand-light), rgba(165,0,52,0.03));border-left:4px solid var(--brand)">
-      <div style="font-size:0.85rem;color:var(--text-body);line-height:1.7">👀 <strong>핵심 체감 포인트</strong> — 두 번째 웹앱은 레퍼런스를 한 번도 언급하지 않았는데도 똑같은 골격으로 나옵니다. 이것이 <strong>"한 번 만들면 다음엔 설명 안 해도 된다"</strong>는 스킬의 힘입니다.</div>
+    <div style="margin:16px 0;border-radius:var(--radius);overflow:hidden;border:1px solid var(--border)">
+      <img src="/img/nlm/nlm_02_new_notebook.png" alt="NotebookLM 소스 추가 화면" style="width:100%;display:block" loading="lazy">
+      <p style="font-size:0.8rem;color:var(--text-muted);padding:8px 12px;background:var(--bg-offwhite);border-top:1px solid var(--border)">소스 추가 화면 — 웹 검색(Fast/Deep Research)과 함께 파일 업로드, 웹사이트·YouTube URL, Google Drive, 복사된 텍스트로 소스를 추가합니다 (2026.6 실측)</p>
     </div>
   </div>
+  <div class="tip-block">
+    <div class="tip-block-title">Fast Research vs Deep Research</div>
+    <div class="tip-block-content">NotebookLM은 <strong>Fast Research</strong>(30~45초, 빠른 소스 수집)와 <strong>Deep Research</strong>(3~5분, 수십 개 소스 심층 분석) 두 가지 리서치 모드를 제공합니다. 빠른 개요가 필요하면 Fast Research를, 보다 깊이 있는 조사가 필요하면 Deep Research를 활용하세요.</div>
+  </div>
+  <div class="tip-block">
+    <div class="tip-block-title">NotebookLM Plus & Enterprise</div>
+    <div class="tip-block-content">Google Workspace Business/Enterprise 고객에게는 <strong>NotebookLM Plus</strong>가 핵심 서비스로 포함됩니다. 5배 더 많은 오디오·동영상 개요, 팀 공유 노트북, 응답 스타일/길이 커스터마이징, 사용 분석 등 기업급 기능을 제공합니다.</div>
+  </div>
+  <div class="tip-block">
+    <div class="tip-block-title">2026.6 업데이트 적용 범위</div>
+    <div class="tip-block-content">에이전틱 채팅·코드 실행·신규 다운로드 형식은 <strong>2026년 6월 8일부터 글로벌 웹에 단계적으로 배포</strong> 중입니다. <strong>Google AI Ultra</strong> 사용자와 <strong>AI Ultra Access·AI Expanded Access를 보유한 Workspace 비즈니스 고객</strong>에게 우선 제공되며, 이후 다른 사용자로 확대됩니다. 사용 중인 계정 등급에 따라 일부 신기능은 아직 보이지 않을 수 있습니다.</div>
+  </div>
 </div>
-
 <div class="clip-section">
-  <div class="clip-section-title">🎯 자율 실습 — 이번엔 '내 업무'로</div>
+  <div class="clip-section-title">컨텍스트 엔지니어링이란?</div>
   <div class="clip-section-content">
-    <p style="margin-bottom:12px">공통 소재로 감을 잡았다면, 이제 <strong>본인이 앞으로도 반복할 일</strong>을 하나 골라 스킬로 만들어 보세요. "내 업무에서 매번 똑같이 하는 일"을 떠올리는 것이 시작입니다.</p>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:8px 0">
-      <div style="background:var(--bg-white);border:1px solid var(--border);border-radius:var(--radius);padding:18px;border-top:3px solid var(--brand)">
-        <div style="font-weight:700;color:var(--text-heading);margin-bottom:6px">📑 반복 보고서 양식</div>
-        <div style="font-size:0.8rem;color:var(--text-secondary);line-height:1.6">주간·월간 보고서의 <strong>고정 양식</strong>을 스킬로. 다음엔 "이번 주 보고서 초안"만 말하면 형식 맞춰 나옵니다.</div>
-      </div>
-      <div style="background:var(--bg-white);border:1px solid var(--border);border-radius:var(--radius);padding:18px;border-top:3px solid var(--brand-gold)">
-        <div style="font-weight:700;color:var(--text-heading);margin-bottom:6px">✅ 점검·체크리스트 절차</div>
-        <div style="font-size:0.8rem;color:var(--text-secondary);line-height:1.6">매번 같은 순서로 확인하는 <strong>점검 절차</strong>를 스킬로. 누락 없이 같은 기준으로 검토하게 됩니다.</div>
-      </div>
-      <div style="background:var(--bg-white);border:1px solid var(--border);border-radius:var(--radius);padding:18px;border-top:3px solid var(--brand-silver)">
-        <div style="font-weight:700;color:var(--text-heading);margin-bottom:6px">🔎 자료조사 흐름</div>
-        <div style="font-size:0.8rem;color:var(--text-secondary);line-height:1.6">실습 ③ 같은 <strong>조사 → 출처 포함 보고서</strong> 흐름을 스킬로. 주제만 바꿔 같은 품질로 반복 생산.</div>
-      </div>
+    <p style="margin-bottom:12px">NotebookLM의 핵심 가치는 <strong>컨텍스트 엔지니어링</strong>에 있습니다.</p>
+    <table class="comparison-table">
+      <thead><tr><th>패러다임</th><th>GIGO</th><th>CIQO</th></tr></thead>
+      <tbody>
+        <tr><td><strong>의미</strong></td><td>Garbage In, Garbage Out</td><td>Context In, Quality Out</td></tr>
+        <tr><td><strong>핵심</strong></td><td>잘못된 입력 → 잘못된 출력</td><td>풍부한 맥락 → 고품질 출력</td></tr>
+        <tr><td><strong>방법</strong></td><td>프롬프트만으로 질문</td><td>문서·데이터를 AI에 제공한 후 질문</td></tr>
+        <tr><td><strong>NotebookLM 역할</strong></td><td>—</td><td>소스(문서) 업로드 → 노트(분석) → 소스화(재활용)</td></tr>
+      </tbody>
+    </table>
+    <div class="tip-block" style="margin-top:16px">
+      <div class="tip-block-title">Note-to-Source 변환</div>
+      <div class="tip-block-content">NotebookLM에서 AI가 분석한 노트를 다시 소스로 변환하면, AI가 자기 분석을 기반으로 더 깊은 인사이트를 생성합니다. 이것이 <strong>CIQO(Context In, Quality Out)</strong>의 핵심 기법입니다.</div>
     </div>
-    <div class="tip-block warning" style="margin-top:14px">
-      <div class="tip-block-title">⚠️ 자율 실습 팁 — 기준이 또렷한 것부터</div>
-      <div class="tip-block-content">
-        처음부터 거창한 업무를 스킬로 만들려 하면 막힙니다. <strong>참고할 완성 샘플이나 명확한 양식이 있는 일</strong>부터 시작하세요. 그리고 만든 스킬은 한 번 써보며 <strong>결과를 검증</strong>한 뒤, 부족한 규칙을 조금씩 보강하면 됩니다.
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="tip-block" style="margin-top:18px">
-  <div class="tip-block-title">✅ 한 줄 정리</div>
-  <div class="tip-block-content">
-    스킬 = <strong>재사용</strong>. "한 번 만들면 다음엔 설명 안 해도 된다"가 핵심 메시지입니다. 오늘은 <strong>기준이 명확한 코드 패턴(④ Gemini API)</strong>으로 감을 잡고, 자율 실습에서 <strong>내 업무</strong>로 한 걸음 옮겨 가세요.
   </div>
 </div>

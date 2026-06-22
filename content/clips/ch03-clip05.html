@@ -1,0 +1,69 @@
+
+<div style="display:flex;align-items:center;gap:12px;padding:14px 20px;background:var(--bg-white);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:20px">
+  <div style="font-size:1.2rem">📓</div>
+  <div style="flex:1">
+    <div style="font-weight:600;font-size:0.88rem;color:var(--text-heading)">NotebookLM</div>
+    <div style="font-size:0.75rem;color:var(--text-muted)">실습 플랫폼</div>
+  </div>
+  <a href="https://notebooklm.google.com" target="_blank" rel="noopener noreferrer" style="background:var(--brand);color:#fff;padding:8px 20px;border-radius:8px;text-decoration:none;font-size:0.82rem;font-weight:600;white-space:nowrap">접속하기 →</a>
+</div>
+
+<div class="clip-overview">대화를 메모로 저장하여 소스로 전환하고, 리서치 기능으로 외부 자료를 추가하여 컨텍스트를 확장합니다.</div>
+<div class="clip-section">
+  <div class="clip-section-title">메모 → 소스 전환 (컨텍스트 엔지니어링)</div>
+  <div class="clip-section-content">
+    <p style="margin-bottom:16px">AI의 분석 결과를 다시 소스로 활용하면, 점점 더 정교한 분석이 가능해집니다.</p>
+    <ul>
+      <li><strong>Step 1:</strong> 유용한 답변의 <strong>"노트로 저장"</strong> 버튼을 클릭합니다</li>
+      <li><strong>Step 2:</strong> 노트 패널에서 저장된 노트를 선택 → <strong>"소스로 전환"</strong> 클릭</li>
+      <li><strong>Step 3:</strong> 이제 AI가 자신의 이전 분석을 기반으로 더 깊은 인사이트를 생성합니다</li>
+    </ul>
+    <p style="font-size:0.82rem;color:var(--text-secondary);margin-top:16px">전환된 소스를 포함하여 아래 프롬프트로 재질문해보세요:</p>
+  </div>
+  <div class="prompt-block">
+    <div class="prompt-header"><span class="prompt-label">소스 전환 후 재질문</span><button class="copy-btn" onclick="copyPrompt(this,'nb-requery')">복사</button></div>
+    <div class="prompt-content" id="nb-requery">새로 추가된 분석 노트를 포함하여,
+팀 회의에서 바로 활용할 수 있는 '핵심 트렌드 & 우리 업무 영향 분석' 브리핑 3페이지를 작성해주세요.
+각 페이지는 핵심 수치, 시사점, 권장 액션을 포함해야 합니다.</div>
+  </div>
+  <div class="tip-block">
+    <div class="tip-block-title">CIQO — Context In, Quality Out</div>
+    <div class="tip-block-content">이 과정이 CIQO(Context In, Quality Out)의 핵심입니다. AI의 분석 결과를 다시 컨텍스트로 제공하면, 점점 더 정교하고 깊이 있는 분석이 가능해집니다.</div>
+  </div>
+</div>
+<div class="clip-section">
+  <div class="clip-section-title">Fast Research / Deep Research로 외부 소스 보강</div>
+  <div class="clip-section-content">
+    <p style="font-size:0.88rem;line-height:1.8">기존 노트북에 외부 자료를 더 추가하고 싶을 때 사용합니다. 소스 패널의 <strong>"웹에서 새 소스를 검색하세요"</strong> 검색창에 키워드 입력 → 옆 드롭다운에서 <strong>Fast Research</strong> 또는 <strong>Deep Research</strong> 선택 → 화살표(→) 클릭하면 NotebookLM이 관련 웹 자료를 자동 수집해 소스로 추가합니다.</p>
+    <div class="info-block" style="margin-top:14px">
+      <div class="info-block-title">두 모드 상세 비교는 앞 페이지에서</div>
+      <div style="font-size:0.85rem;line-height:1.75;color:var(--text-body)">
+        Fast vs Deep 비교 표, 사용 시나리오, 키워드 예시는 <a href="#ch03-clip03" style="color:var(--brand);font-weight:600">실습 — 콘텐츠 생성</a> 페이지의 <strong>"방법 B 자세히"</strong> 섹션에서 자세히 다뤘습니다. 이 페이지에서는 <strong>이미 어느 정도 정리된 노트북에 외부 자료를 한 번 더 보강</strong>하는 단계로 활용하세요.
+      </div>
+    </div>
+  </div>
+</div>
+<div class="clip-section">
+  <div class="clip-section-title">컨텍스트가 쌓이는 과정</div>
+  <div class="clip-section-content">
+    <p style="margin-bottom:16px">NotebookLM에서 컨텍스트를 점진적으로 확장하는 전체 흐름입니다.</p>
+    <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:16px 0">
+      <div style="background:var(--brand);color:#fff;padding:8px 16px;border-radius:20px;font-size:0.82rem;font-weight:600">소스 업로드</div>
+      <div style="color:var(--text-muted);font-size:1.1rem">→</div>
+      <div style="background:var(--brand-light);color:var(--brand);padding:8px 16px;border-radius:20px;font-size:0.82rem;font-weight:600;border:1px solid var(--brand)">질문 & 답변</div>
+      <div style="color:var(--text-muted);font-size:1.1rem">→</div>
+      <div style="background:var(--brand-light);color:var(--brand);padding:8px 16px;border-radius:20px;font-size:0.82rem;font-weight:600;border:1px solid var(--brand)">메모 저장</div>
+      <div style="color:var(--text-muted);font-size:1.1rem">→</div>
+      <div style="background:var(--brand);color:#fff;padding:8px 16px;border-radius:20px;font-size:0.82rem;font-weight:600">소스 전환</div>
+      <div style="color:var(--text-muted);font-size:1.1rem">→</div>
+      <div style="background:var(--brand-light);color:var(--brand);padding:8px 16px;border-radius:20px;font-size:0.82rem;font-weight:600;border:1px solid var(--brand)">더 깊은 질문</div>
+      <div style="color:var(--text-muted);font-size:1.1rem">→</div>
+      <div style="background:var(--brand);color:#fff;padding:8px 16px;border-radius:20px;font-size:0.82rem;font-weight:600">Fast / Deep Research</div>
+      <div style="color:var(--text-muted);font-size:1.1rem">→</div>
+      <div style="background:var(--brand-light);color:var(--brand);padding:8px 16px;border-radius:20px;font-size:0.82rem;font-weight:600;border:1px solid var(--brand)">외부 소스 추가</div>
+      <div style="color:var(--text-muted);font-size:1.1rem">→</div>
+      <div style="background:var(--bg-offwhite);color:var(--text-secondary);padding:8px 16px;border-radius:20px;font-size:0.82rem;font-weight:600;border:1px dashed var(--text-muted)">반복</div>
+    </div>
+    <p style="font-size:0.82rem;color:var(--text-secondary);margin-top:12px">이 과정을 반복할수록 NotebookLM의 컨텍스트가 풍부해지고, AI의 답변 품질이 향상됩니다.</p>
+  </div>
+</div>

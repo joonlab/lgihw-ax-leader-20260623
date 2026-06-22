@@ -1,0 +1,75 @@
+<div class="info-block" style="margin-bottom:18px;background:linear-gradient(135deg, var(--brand-light), rgba(165,0,52,0.03));border-left:4px solid var(--brand)">
+  <div style="font-size:0.85rem;color:var(--text-body);line-height:1.7">🛡️ 에이전트는 강력한 만큼 <strong>예측 못한 행동</strong>도 합니다 — 갑자기 파일을 지우거나, 묻지 않고 결정해 버리기도 합니다. <strong>승인 정책</strong>과 <strong>Global Rules</strong>를 한 번만 잡아두면, 그 다음부터 모든 대화가 <strong>안전하면서도 덜 번거롭게</strong> 굴러갑니다.</div>
+</div>
+
+<div class="clip-overview">설정(Settings)에서 ① <strong>승인 정책</strong>(얼마나 자주 물을지)과 ② <strong>Global Rules</strong>(에이전트의 행동 헌법)를 잡습니다. 자동화 효율과 안전의 균형을 맞추는 게 목표입니다.</div>
+
+<div class="clip-section">
+  <div class="clip-section-title">⚙️ 승인 정책 — "얼마나 자주 물어볼까"</div>
+  <div class="clip-section-content">
+    <p style="margin-bottom:12px">설정 위치: 프로젝트 옆 <strong>설정(⚙️)</strong> → <strong>App / Project Settings</strong> → <strong>Agent Settings</strong>. 두 가지를 봅니다.</p>
+    <figure class="screenshot">
+      <img src="/img/antigravity/ag_intro_06_approval.jpg" alt="프로젝트 설정 — Security Preset(Unrestricted)과 Artifact Review Policy" />
+      <figcaption style="font-size:0.72rem;color:var(--text-muted);text-align:center;margin-top:6px;font-style:italic">설정 → Agent Settings — Security Preset / Artifact Review Policy</figcaption>
+    </figure>
+    <table class="comparison-table" style="margin-top:14px">
+      <thead><tr><th style="width:30%">항목</th><th>의미 &amp; 권장</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Security Preset</strong><br>(보안 강도)</td><td>터미널 자동 실행·파일 접근 허용 범위. 영상은 편의를 위해 <strong>Unrestricted</strong>로 풀었지만, <strong>업무 PC에서는 권장하지 않습니다</strong>. 오늘 같은 실습/체험은 <strong>중간 단계</strong>로 두고, 위험한 작업만 물어보게 하는 편이 안전합니다.</td></tr>
+        <tr><td><strong>Artifact Review Policy</strong><br>(결과 검토)</td><td>에이전트가 만든 산출물을 매번 검토할지. <strong>"Agent decide"</strong> 정도가 효율·안전의 균형이 좋습니다. (항상 자동 진행 = 편하지만 통제력 ↓)</td></tr>
+      </tbody>
+    </table>
+    <div class="tip-block warning" style="margin-top:14px">
+      <div class="tip-block-title">⚠️ 팀장 관점 — "편의 vs 통제"는 데이터 민감도로 정하세요</div>
+      <div class="tip-block-content">
+        오늘처럼 <strong>더미 데이터로 연습</strong>할 때는 느슨하게 풀어 빠르게 체험해도 됩니다. 하지만 실제 업무 파일·사내 자료를 다룰 땐 <strong>승인을 한 단계 끼워두는</strong> 것이 안전합니다. 설정을 바꾼 뒤에는 <strong>재시작(또는 새 대화)</strong>해야 적용됩니다.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="clip-section">
+  <div class="clip-section-title">📜 Global Rules — 에이전트의 "행동 헌법"</div>
+  <div class="clip-section-content">
+    <div class="info-block" style="background:linear-gradient(135deg, var(--brand-light), rgba(165,0,52,0.03));border-left:4px solid var(--brand);margin-bottom:14px">
+      <div style="font-size:0.88rem;color:var(--text-body);line-height:1.75"><strong>왜 필요한가요?</strong> Global Rules는 <strong>모든 프로젝트에 공통 적용</strong>되는 행동 지침입니다. 한 번 적어두면 그 다음부터 모든 대화에 자동 적용돼, 매번 "한국어로 답해줘", "지우기 전에 물어봐"를 반복하지 않아도 됩니다.</div>
+    </div>
+    <p style="margin-bottom:10px"><strong>설정 위치:</strong> 설정(⚙️) → <strong>Customizations</strong> → <strong>Rules</strong> 영역에 마크다운(텍스트)으로 입력</p>
+
+    <div style="margin:14px 0 8px 0;font-weight:700;font-size:0.95rem;color:var(--text-heading)">📋 추천 Global Rules (그대로 복사해서 붙여넣으세요)</div>
+    <div style="background:#1a1a1a;color:#e6e6e6;border-radius:10px;padding:18px 20px;font-family:'SF Mono','Menlo',monospace;font-size:0.78rem;line-height:1.7;overflow-x:auto;margin:8px 0">
+<pre style="margin:0;white-space:pre-wrap;color:#e6e6e6"># 박준 강사 추천 Global Rules (LG인화원 AX 리더 세미나)
+
+## 1. 언어
+- 모든 응답·설명·주석은 한국어로 작성한다.
+
+## 2. 계획 먼저 (Plan-First)
+- 목표를 받으면 먼저 단계별 계획을 보여주고,
+  "진행"이라고 답하기 전에는 실제 파일 변경을 하지 않는다.
+
+## 3. 위험한 작업은 반드시 승인 요청
+- 파일·폴더 삭제, 외부 명령 실행, 패키지 설치 전에는
+  실제 명령을 보여주고 한 번 더 묻는다.
+
+## 4. 추측 금지
+- 정보가 부족하면 추측하지 말고 명확히 질문한다.
+
+## 5. 작게, 자주 보고
+- 큰 작업은 작은 단위로 쪼개고, 각 단위가 끝나면
+  "무엇을 했고 다음에 무엇을 할지" 한 줄로 보고한다.
+
+## 6. 자체 검증
+- 결과를 스스로 한 번 확인한 뒤 보고한다.</pre>
+    </div>
+    <div class="info-block" style="margin-top:8px;background:var(--bg-offwhite);border-left:3px solid var(--text-muted)">
+      <div style="font-size:0.82rem;color:var(--text-secondary);line-height:1.7">이 6개 규칙은 <strong>"계획 먼저 보고 → 위험한 건 물어보고 → 작게 쪼개서 → 스스로 검증"</strong>이라는 안전한 협업 습관을 에이전트에게 심는 것입니다. 본인 업무 스타일에 맞게 자유롭게 추가·수정하세요.</div>
+    </div>
+  </div>
+</div>
+
+<div class="tip-block" style="margin-top:18px">
+  <div class="tip-block-title">✅ 여기까지 하면 준비 끝</div>
+  <div class="tip-block-content">
+    설치 + 화면 익히기 + 안전 세팅까지 끝났습니다. 이제 <strong>실제로 일을 맡길 차례</strong>입니다. 다음 챕터(공통 실습 4종)에서 더미 폴더의 파일 정리부터 시작합니다 — 코드 한 줄 없이, 한국어 지시만으로요.
+  </div>
+</div>

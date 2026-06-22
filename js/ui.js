@@ -457,15 +457,15 @@ export function applyCeoTextReplacements(html) {
 }
 
 export const BATCH_META = {
-  1: { date: '2026.06.23 (월) · 06.25 (수)', location: 'LG인화원', companies: '팀장 대상 (1차 28명 · 2차 20명)' },
-  2: { date: '2026.06.23 (월) · 06.25 (수)', location: 'LG인화원', companies: '팀장 대상 (1차 28명 · 2차 20명)' },
-  3: { date: '2026.06.23 (월) · 06.25 (수)', location: 'LG인화원', companies: '팀장 대상 (1차 28명 · 2차 20명)' },
-  4: { date: '2026.06.23 (월) · 06.25 (수)', location: 'LG인화원', companies: '팀장 대상 (1차 28명 · 2차 20명)' },
-  5: { date: '2026.06.23 (월) · 06.25 (수)', location: 'LG인화원', companies: '팀장 대상 (1차 28명 · 2차 20명)' },
-  6: { date: '2026.06.23 (월) · 06.25 (수)', location: 'LG인화원', companies: '팀장 대상 (1차 28명 · 2차 20명)' },
-  7: { date: '2026.06.23 (월) · 06.25 (수)', location: 'LG인화원', companies: '팀장 대상 (1차 28명 · 2차 20명)' },
-  99: { date: '2026.06.23 (월) · 06.25 (수)', location: 'LG인화원', companies: '팀장 대상 (1차 28명 · 2차 20명)' },
-  8: { date: '2026.06.23 (월) · 06.25 (수)', location: 'LG인화원', companies: '팀장 대상 (1차 28명 · 2차 20명)' },
+  1: { date: '2026.06.23 (월)', location: 'LG인화원', companies: '' },
+  2: { date: '2026.06.23 (월)', location: 'LG인화원', companies: '' },
+  3: { date: '2026.06.23 (월)', location: 'LG인화원', companies: '' },
+  4: { date: '2026.06.23 (월)', location: 'LG인화원', companies: '' },
+  5: { date: '2026.06.23 (월)', location: 'LG인화원', companies: '' },
+  6: { date: '2026.06.23 (월)', location: 'LG인화원', companies: '' },
+  7: { date: '2026.06.23 (월)', location: 'LG인화원', companies: '' },
+  99: { date: '2026.06.23 (월)', location: 'LG인화원', companies: '' },
+  8: { date: '2026.06.23 (월)', location: 'LG인화원', companies: '' },
 };
 
 export function isInhwawonBatch(batch) {

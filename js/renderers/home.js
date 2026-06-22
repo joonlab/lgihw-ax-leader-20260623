@@ -83,10 +83,10 @@ export function renderHome(el) {
     <div class="chapters-grid">${cardsHtml}</div>
 
     <div class="quick-access">
-      <a class="quick-btn" href="#ch01-clip02"><span class="q-icon"><i data-lucide="download" style="width:16px;height:16px;"></i></span> 설치 가이드</a>
-      <a class="quick-btn" href="#ch01-clip03"><span class="q-icon"><i data-lucide="monitor" style="width:16px;height:16px;"></i></span> 사용법</a>
-      <a class="quick-btn" href="#ch04-clip01"><span class="q-icon"><i data-lucide="folder-down" style="width:16px;height:16px;"></i></span> 실습자료</a>
-      <a class="quick-btn" href="#ch04-clip02"><span class="q-icon"><i data-lucide="book-open-text" style="width:16px;height:16px;"></i></span> 참고 링크</a>
+      <a class="quick-btn" href="#ch04-clip02"><span class="q-icon"><i data-lucide="download" style="width:16px;height:16px;"></i></span> 설치 가이드</a>
+      <a class="quick-btn" href="#ch04-clip03"><span class="q-icon"><i data-lucide="monitor" style="width:16px;height:16px;"></i></span> 사용법</a>
+      <a class="quick-btn" href="#ch07-clip01"><span class="q-icon"><i data-lucide="folder-down" style="width:16px;height:16px;"></i></span> 실습자료</a>
+      <a class="quick-btn" href="#ch07-clip02"><span class="q-icon"><i data-lucide="book-open-text" style="width:16px;height:16px;"></i></span> 참고 링크</a>
     </div>
   `;
   initIcons();
