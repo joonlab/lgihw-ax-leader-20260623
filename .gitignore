@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.DS_Store
+.env
+.env.local
+.env.*.local
+.vercel
+*.log
+.vscode/
+.idea/
+
+public/img/*_draft.png

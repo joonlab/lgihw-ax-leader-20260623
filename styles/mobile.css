@@ -1,0 +1,84 @@
+/* ========================================
+   MOBILE HAMBURGER & OVERLAY
+   ======================================== */
+.hamburger {
+  display: none;
+  position: fixed; top: 12px; left: 12px; z-index: 200;
+  width: 36px; height: 36px; border-radius: var(--radius-sm);
+  background: transparent; border: 1px solid var(--border);
+  cursor: pointer; align-items: center; justify-content: center;
+  padding: 0; transition: all var(--transition);
+}
+
+.hamburger:hover { background: var(--bg-offwhite); border-color: var(--brand); }
+
+.hamburger svg { width: 18px; height: 18px; color: var(--text-body); }
+
+.hamburger-close { display: none; }
+.hamburger.open .hamburger-icon { display: none; }
+.hamburger.open .hamburger-close { display: inline-flex; }
+
+.sidebar-overlay {
+  display: none; position: fixed; inset: 0; z-index: 90;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(4px);
+}
+
+/* Mobile Bottom Nav */
+.mobile-bottom-nav {
+  display: none;
+  position: fixed; bottom: 0; left: 0; right: 0;
+  background: var(--bg-white);
+  border-top: 1px solid var(--border);
+  padding: 8px 16px; z-index: 80;
+  justify-content: space-around; align-items: center;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+}
+
+.mobile-bottom-nav.nav-hidden {
+  transform: translateY(100%);
+}
+
+.mobile-nav-btn {
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
+  padding: 6px 12px; border: none; background: none;
+  font-size: 0.62rem; color: var(--text-muted);
+  cursor: pointer; font-family: 'Noto Sans KR', sans-serif;
+  transition: color var(--transition);
+}
+
+.mobile-nav-btn:hover, .mobile-nav-btn.active { color: var(--brand); }
+
+.mobile-nav-btn .nav-icon { font-size: 1.1rem; }
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media (max-width: 1024px) {
+  .chapters-grid { grid-template-columns: repeat(2, 1fr); }
+  .concepts-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .sidebar { transform: translateX(-100%); }
+  .sidebar.open { transform: translateX(0); }
+  .sidebar-overlay.show { display: block; }
+  .hamburger { display: flex; }
+  .main { margin-left: 0; }
+  .main-topbar { padding: 12px 16px; padding-left: 56px; }
+  .main-content { padding: 20px 16px 100px; }
+  .home-title { font-size: 1.5rem; }
+  .chapters-grid { grid-template-columns: 1fr; }
+  .concepts-grid { grid-template-columns: 1fr; }
+  .news-grid { grid-template-columns: 1fr; }
+  .tech-tree { flex-direction: column; }
+  .tech-tree-arrow { transform: rotate(90deg); padding: 0; }
+  .clip-title { font-size: 1.3rem; }
+  .timeline-bar { flex-wrap: wrap; }
+  .timeline-block { flex: 1 1 auto; min-width: 60px; }
+  .mobile-bottom-nav { display: flex; }
+  body.nav-hidden .chatbot-fab { bottom: 88px; }
+  .clip-nav-footer { flex-direction: column; gap: 10px; }
+  .clip-nav-btn { width: 100%; justify-content: center; }
+}

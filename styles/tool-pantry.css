@@ -1,0 +1,48 @@
+/* ========================================
+   TOOL PANTRY
+   ======================================== */
+.tool-section-title {
+  font-size: 0.85rem; font-weight: 600; color: var(--text-heading);
+  margin-bottom: 12px; padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+.tool-list {
+  display: flex; flex-direction: column; gap: 8px;
+}
+
+.tool-item {
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: 14px 16px;
+  background: var(--bg-white); border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  transition: all var(--transition);
+}
+
+.tool-item:hover {
+  border-color: var(--brand);
+  box-shadow: var(--shadow-sm);
+}
+
+.tool-name {
+  font-size: 0.85rem; font-weight: 600; color: var(--text-heading);
+}
+
+.tool-desc {
+  font-size: 0.78rem; color: var(--text-secondary); margin-top: 2px;
+}
+
+.tool-usecase {
+  margin-top: 6px; display: flex; flex-wrap: wrap; gap: 4px;
+}
+
+.tool-usecase .pill-tag {
+  display: inline-block; font-size: 0.65rem; font-weight: 500;
+  background: var(--brand); color: #fff;
+  padding: 2px 10px; border-radius: 12px; white-space: nowrap;
+}
+
+.tool-link {
+  margin-left: auto; flex-shrink: 0;
+  font-size: 0.7rem; color: var(--brand); font-weight: 500;
+}

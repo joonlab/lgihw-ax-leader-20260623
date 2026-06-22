@@ -1,0 +1,120 @@
+<div class="info-block" style="margin-bottom:18px;background:linear-gradient(135deg, var(--brand-light), rgba(165,0,52,0.03));border-left:4px solid var(--brand)">
+  <div style="font-size:0.85rem;color:var(--text-body);line-height:1.7">📊 실습 ①이 "파일을 정리"했다면, 이번 실습 ②는 <strong>파일 속 내용을 정리</strong>합니다. 문장 속에 흩어진 <strong>비정형 자료</strong>(매출 메모·직원 연락망·고객 문의)를 — 내가 원하는 양식의 <strong>엑셀 표(.xlsx)</strong>와 <strong>요약 보고서</strong>로 자동 변환합니다. AX 업무에서 가장 자주 쓰는 "글 → 표" 변환의 핵심 실습입니다.</div>
+</div>
+
+<div class="clip-overview">한울식품(주) 더미 폴더에는 정리 안 된 메모 파일이 들어 있습니다. 채팅에 <strong>복붙 프롬프트 4개</strong>를 순서대로 넣어 ① 매출 메모 → 엑셀, ② 직원 연락망 → 엑셀, ③ 고객 문의 → 엑셀, ④ 정리한 표들을 묶어 <strong>상반기 영업 현황 요약 보고서</strong>까지 한 번에 만듭니다. 모든 프롬프트에 <strong>"없는 값은 지어내지 마(환각 금지)"</strong> 규칙이 들어 있는 게 포인트.</div>
+
+<div class="clip-section">
+  <div class="clip-section-title">STEP 1 — 매출 메모 → 엑셀 표</div>
+  <div class="clip-section-content">
+    <p style="margin-bottom:12px">매출이 문장 속에 흩어져 있는 메모를 <strong>날짜·거래처·품목·수량·단가·금액</strong> 컬럼의 엑셀 표로 정리합니다.</p>
+
+    <div style="margin:14px 0 6px 0;font-weight:700;font-size:0.9rem;color:var(--text-heading)">📋 [복붙] 매출 메모를 엑셀 표(.xlsx)로</div>
+    <div style="background:#1a1a1a;color:#e6e6e6;border-radius:10px;padding:16px 18px;font-family:'SF Mono','Menlo',monospace;font-size:0.8rem;line-height:1.7;overflow-x:auto;margin:6px 0"><pre style="margin:0;white-space:pre-wrap;color:#e6e6e6">'매출_정리안된메모.txt' 파일을 열어봐.
+매출 데이터가 문장 속에 흩어져 있어서 한눈에 보기 어려워.
+
+이 내용을 아래 컬럼의 엑셀 표로 깔끔하게 정리해서 .xlsx 파일로 저장해줘:
+날짜 / 거래처 / 품목 / 수량 / 단가 / 금액
+
+규칙:
+- 메모에 없는 값은 비워두거나 '미상'으로 표시해줘. (없는 값을 지어내지 마.)
+- 맨 아래 줄에 금액 합계도 추가해줘.</pre></div>
+
+    <div class="info-block" style="margin-top:12px;background:var(--bg-offwhite);border-left:3px solid var(--text-muted)">
+      <div style="font-size:0.82rem;color:var(--text-secondary);line-height:1.7"><strong>왜 "지어내지 마"가 중요한가:</strong> AI는 빈칸을 그럴듯한 값으로 채우려는 경향(환각)이 있습니다. <strong>"없는 값은 지어내지 마"</strong> 한 줄이 보고서 신뢰도를 지키는 안전장치예요. 결과 .xlsx가 만들어지면 열어서 <strong>합계가 맞는지</strong> 한 번 검산하세요.</div>
+    </div>
+    <div style="font-size:0.8rem;color:var(--text-secondary);margin-top:10px;line-height:1.6">💡 <strong>이렇게 응용해 보세요</strong> — 메신저·메일에 흩어진 주문 내역을 그대로 붙여넣고 컬럼만 바꾸면, 내 업무용 집계표가 즉석에서 만들어집니다.</div>
+  </div>
+</div>
+
+<div class="clip-section">
+  <div class="clip-section-title">STEP 2 — 직원 연락망 → 엑셀 표</div>
+  <div class="clip-section-content">
+    <p style="margin-bottom:12px">정리 안 된 채 흩어진 연락처를 <strong>부서별로 정렬된</strong> 깔끔한 연락망 표로 만듭니다.</p>
+
+    <div style="margin:14px 0 6px 0;font-weight:700;font-size:0.9rem;color:var(--text-heading)">📋 [복붙] 직원 연락망을 엑셀 표로 (부서별 정렬)</div>
+    <div style="background:#1a1a1a;color:#e6e6e6;border-radius:10px;padding:16px 18px;font-family:'SF Mono','Menlo',monospace;font-size:0.8rem;line-height:1.7;overflow-x:auto;margin:6px 0"><pre style="margin:0;white-space:pre-wrap;color:#e6e6e6">'직원연락망_엉망.txt' 파일을 열어봐. 직원 연락처가 정리 안 된 채 흩어져 있어.
+
+아래 컬럼의 연락처 표로 정리해서 .xlsx 파일로 저장해줘:
+부서 / 이름 / 직급 / 전화번호 / 이메일
+
+규칙:
+- 없는 정보는 빈칸으로 두고, 지어내지 마.
+- 부서별로 보기 좋게 정렬해줘.</pre></div>
+
+    <div style="font-size:0.8rem;color:var(--text-secondary);margin-top:10px;line-height:1.6">💡 <strong>이렇게 응용해 보세요</strong> — "부서별로 정렬"처럼 <strong>정렬·그룹 기준</strong>을 한 줄 덧붙이면 표가 훨씬 쓸모 있어집니다. (날짜순·금액 큰 순 등)</div>
+  </div>
+</div>
+
+<div class="clip-section">
+  <div class="clip-section-title">STEP 3 — 고객 문의 → 엑셀 표</div>
+  <div class="clip-section-content">
+    <p style="margin-bottom:12px">뒤섞인 고객 문의를 <strong>처리상태까지 분류된</strong> 표로 정리합니다.</p>
+
+    <div style="margin:14px 0 6px 0;font-weight:700;font-size:0.9rem;color:var(--text-heading)">📋 [복붙] 고객 문의를 엑셀 표로 (처리상태 분류)</div>
+    <div style="background:#1a1a1a;color:#e6e6e6;border-radius:10px;padding:16px 18px;font-family:'SF Mono','Menlo',monospace;font-size:0.8rem;line-height:1.7;overflow-x:auto;margin:6px 0"><pre style="margin:0;white-space:pre-wrap;color:#e6e6e6">'고객문의 모음 (정리전).txt' 파일을 열어봐. 고객 문의가 뒤섞여 있어.
+
+아래 컬럼의 표로 정리해서 .xlsx 파일로 저장해줘:
+날짜 / 고객명 / 연락처 / 문의내용 / 처리상태
+
+규칙:
+- 처리상태가 안 적힌 건 '미처리'로 표시해줘.
+- 없는 정보는 빈칸으로 두고, 지어내지 마.</pre></div>
+
+    <div style="font-size:0.8rem;color:var(--text-secondary);margin-top:10px;line-height:1.6">💡 <strong>이렇게 응용해 보세요</strong> — "안 적힌 건 '미처리'로" 같은 <strong>기본값 규칙</strong>을 주면, 빠진 항목도 자동으로 메워져 후속 관리가 쉬워집니다.</div>
+  </div>
+</div>
+
+<div class="clip-section">
+  <div class="clip-section-title">STEP 4 — 종합 요약 보고서 자동 생성</div>
+  <div class="clip-section-content">
+    <p style="margin-bottom:12px">앞에서 정리한 표들과 폴더 안의 csv·엑셀 자료를 <strong>한데 묶어</strong> 보고서 초안을 만듭니다. 흩어진 여러 자료가 하나의 문서로 종합되는 단계입니다.</p>
+
+    <div style="margin:14px 0 6px 0;font-weight:700;font-size:0.9rem;color:var(--text-heading)">📋 [복붙] 상반기 영업 현황 요약 보고서(.md) 생성</div>
+    <div style="background:#1a1a1a;color:#e6e6e6;border-radius:10px;padding:16px 18px;font-family:'SF Mono','Menlo',monospace;font-size:0.8rem;line-height:1.7;overflow-x:auto;margin:6px 0"><pre style="margin:0;white-space:pre-wrap;color:#e6e6e6">지금까지 정리한 표들과 이 폴더의 csv·엑셀 자료(월매출, 거래처리스트, 미수금현황 등)를 종합해서,
+'한울식품 2026년 상반기 영업 현황 요약 보고서'를 만들어줘.
+
+포함할 내용:
+- 5~6월 매출 요약 (주요 거래처별)
+- 미수금 현황
+- 고객 문의 주요 트렌드
+- 한 줄 총평
+
+보기 좋은 보고서 형태로 만들고, 마크다운(.md) 파일로 저장해줘.
+자료에 없는 수치는 지어내지 마.</pre></div>
+
+    <div class="info-block" style="margin-top:12px;background:var(--bg-offwhite);border-left:3px solid var(--text-muted)">
+      <div style="font-size:0.82rem;color:var(--text-secondary);line-height:1.7"><strong>여기까지 오면:</strong> 흩어진 메모 → 표(.xlsx) 3개 → 종합 보고서(.md) 1개가 모두 내 작업 폴더에 생깁니다. <strong>"비정형 → 정형 → 종합"</strong> 흐름을 한 번에 경험하는 것이 이 실습의 목적입니다.</div>
+    </div>
+    <div style="font-size:0.8rem;color:var(--text-secondary);margin-top:10px;line-height:1.6">💡 <strong>이렇게 응용해 보세요</strong> — "포함할 내용" 항목만 내 보고서 목차로 바꾸면, 주간·월간 업무 보고서 초안을 자동으로 받을 수 있습니다.</div>
+  </div>
+</div>
+
+<div class="clip-section">
+  <div class="clip-section-title">한눈에 — 비정형 자료가 이렇게 바뀝니다</div>
+  <div class="clip-section-content">
+    <table class="comparison-table">
+      <thead><tr><th style="width:30%">정리 전 (비정형)</th><th style="width:34%">변환</th><th>정리 후 (정형)</th></tr></thead>
+      <tbody>
+        <tr><td>문장 속 매출 메모</td><td>날짜·거래처·금액 컬럼으로</td><td>매출 표 <strong>.xlsx</strong> (합계 포함)</td></tr>
+        <tr><td>흩어진 직원 연락처</td><td>부서별 정렬</td><td>연락망 표 <strong>.xlsx</strong></td></tr>
+        <tr><td>뒤섞인 고객 문의</td><td>처리상태 분류</td><td>문의 표 <strong>.xlsx</strong></td></tr>
+        <tr><td>표 3개 + csv·엑셀 자료</td><td>주요 항목 종합</td><td>요약 보고서 <strong>.md</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="tip-block warning" style="margin-top:18px">
+  <div class="tip-block-title">⚠️ 꼭 기억할 한 줄 — "없는 값은 지어내지 마"</div>
+  <div class="tip-block-content">
+    네 프롬프트 모두에 <strong>환각 금지 규칙</strong>이 들어 있습니다. 데이터를 다루는 모든 작업에서 이 한 줄은 필수예요. 그리고 결과물(.xlsx·.md)은 <strong>그대로 믿지 말고 원본과 한 번 대조</strong>하는 습관을 들이세요 — AI는 초안을 빠르게 뽑아주는 도구이고, <strong>최종 검수는 사람의 몫</strong>입니다.
+  </div>
+</div>
+
+<div class="tip-block" style="margin-top:14px">
+  <div class="tip-block-title">💡 다음 실습 예고</div>
+  <div class="tip-block-content">
+    내 PC 안의 자료를 정리했으니, 다음 <strong>실습 ③</strong>에서는 시선을 <strong>밖(웹)</strong>으로 돌립니다. AI에게 <strong>웹 자료조사</strong>를 맡기고 <strong>출처 링크가 달린 HTML 보고서</strong>를 받는 — "조사부터 보고서까지" 자동화를 다룹니다.
+  </div>
+</div>

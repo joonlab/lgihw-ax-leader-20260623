@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>회의록 → 액션아이템 정리기 (Gemini API)</title>
+<style>
+  :root {
+    --lg-red: #A50034;
+    --lg-red-dark: #7d0027;
+    --gold: #b8860b;
+    --bg: #f5f6f8;
+    --card: #ffffff;
+    --border: #e3e5ea;
+    --text: #1f2329;
+    --muted: #6b7280;
+    --ok: #15803d;
+    --err: #b91c1c;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+      "Malgun Gothic", "Noto Sans KR", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 32px 20px 64px; }
+  header h1 {
+    font-size: 26px;
+    margin: 0 0 6px;
+    color: var(--lg-red);
+    font-weight: 800;
+  }
+  header p { margin: 0 0 24px; color: var(--muted); font-size: 14px; }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  label {
+    display: block;
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+  .hint { font-weight: 400; color: var(--muted); font-size: 12px; }
+  input[type="password"], input[type="text"], textarea {
+    width: 100%;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-size: 14px;
+    font-family: inherit;
+    background: #fafbfc;
+    transition: border-color .15s, box-shadow .15s;
+  }
+  input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--lg-red);
+    box-shadow: 0 0 0 3px rgba(165,0,52,0.10);
+    background: #fff;
+  }
+  textarea { resize: vertical; min-height: 200px; line-height: 1.7; }
+  .key-row { display: flex; gap: 8px; align-items: stretch; }
+  .key-row input { flex: 1; }
+  .toggle-btn {
+    border: 1px solid var(--border);
+    background: #fff;
+    border-radius: 10px;
+    padding: 0 14px;
+    cursor: pointer;
+    font-size: 13px;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  .toggle-btn:hover { background: #f3f4f6; }
+  .row-between { display: flex; justify-content: space-between; align-items: center; }
+  .btn {
+    background: var(--lg-red);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 15px 24px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    width: 100%;
+    transition: background .15s, transform .05s;
+  }
+  .btn:hover:not(:disabled) { background: var(--lg-red-dark); }
+  .btn:active:not(:disabled) { transform: translateY(1px); }
+  .btn:disabled { opacity: .55; cursor: not-allowed; }
+  .spinner {
+    display: inline-block;
+    width: 15px; height: 15px;
+    border: 2px solid rgba(255,255,255,0.4);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin .7s linear infinite;
+    vertical-align: -2px;
+    margin-right: 8px;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .status {
+    margin-top: 12px;
+    font-size: 13px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    display: none;
+  }
+  .status.err { display: block; background: #fef2f2; color: var(--err); border: 1px solid #fecaca; }
+  .status.ok  { display: block; background: #f0fdf4; color: var(--ok);  border: 1px solid #bbf7d0; }
+  #result { display: none; }
+  .result-section-title {
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: .04em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin: 0 0 10px;
+  }
+  .summary-box {
+    background: #fbf7f8;
+    border-left: 4px solid var(--lg-red);
+    border-radius: 0 10px 10px 0;
+    padding: 14px 16px;
+    margin-bottom: 22px;
+    font-size: 15px;
+    white-space: pre-wrap;
+  }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td {
+    text-align: left;
+    padding: 11px 12px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  th {
+    background: #faf6f7;
+    color: var(--lg-red);
+    font-weight: 700;
+    border-bottom: 2px solid #f0dde2;
+  }
+  tbody tr:hover { background: #fafbfc; }
+  td.col-task { width: 50%; }
+  td.col-owner { width: 22%; white-space: nowrap; }
+  td.col-due { width: 28%; white-space: nowrap; }
+  .empty-cell { color: var(--muted); }
+  .copy-btn {
+    margin-top: 16px;
+    border: 1px solid var(--border);
+    background: #fff;
+    color: var(--text);
+    border-radius: 10px;
+    padding: 9px 16px;
+    font-size: 13px;
+    cursor: pointer;
+  }
+  .copy-btn:hover { background: #f3f4f6; }
+  .meta { font-size: 12px; color: var(--muted); margin-top: 18px; }
+  .sample-link {
+    background: none; border: none; color: var(--lg-red);
+    cursor: pointer; font-size: 12px; text-decoration: underline; padding: 0;
+  }
+  details { margin-top: 14px; font-size: 13px; color: var(--muted); }
+  details summary { cursor: pointer; font-weight: 600; }
+  details pre {
+    background: #1f2329; color: #e6e6e6; padding: 12px; border-radius: 8px;
+    overflow-x: auto; font-size: 12px; white-space: pre-wrap; word-break: break-all;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>회의록 → 액션아이템 정리기</h1>
+    <p>회의록을 붙여넣으면 Gemini AI가 요약과 할 일(담당·기한)을 자동으로 정리합니다. · 무료 Gemini API 사용</p>
+  </header>
+
+  <!-- 1. API 키 -->
+  <div class="card">
+    <label for="apiKey">
+      ① Gemini API 키
+      <span class="hint">— aistudio.google.com/apikey 에서 무료 발급 (이 키는 서버에 저장되지 않습니다)</span>
+    </label>
+    <div class="key-row">
+      <input id="apiKey" type="password" placeholder="발급받은 API 키를 붙여넣으세요 (예: AIza...)" autocomplete="off" />
+      <button class="toggle-btn" id="toggleKey" type="button">보기</button>
+    </div>
+  </div>
+
+  <!-- 2. 회의록 입력 -->
+  <div class="card">
+    <div class="row-between" style="margin-bottom:8px;">
+      <label for="notes" style="margin-bottom:0;">② 회의록 붙여넣기</label>
+      <button class="sample-link" id="loadSample" type="button">예시 회의록 넣기</button>
+    </div>
+    <textarea id="notes" placeholder="회의록 내용을 여기에 붙여넣으세요.
+예) 일시, 참석자, 논의 내용, 결정 사항 등 자유 형식 텍스트면 됩니다."></textarea>
+  </div>
+
+  <!-- 3. 실행 버튼 -->
+  <div class="card">
+    <button class="btn" id="runBtn" type="button">✦ 액션아이템 추출하기</button>
+    <div class="status" id="status"></div>
+  </div>
+
+  <!-- 4. 결과 -->
+  <div class="card" id="result">
+    <p class="result-section-title">회의 요약</p>
+    <div class="summary-box" id="summaryBox"></div>
+
+    <p class="result-section-title">액션 아이템</p>
+    <table>
+      <thead>
+        <tr>
+          <th class="col-task">할 일</th>
+          <th class="col-owner">담당</th>
+          <th class="col-due">기한</th>
+        </tr>
+      </thead>
+      <tbody id="actionBody"></tbody>
+    </table>
+
+    <button class="copy-btn" id="copyBtn" type="button">결과 텍스트로 복사</button>
+
+    <details>
+      <summary>원본 응답(JSON) 보기 — 디버깅용</summary>
+      <pre id="rawBox"></pre>
+    </details>
+  </div>
+
+  <p class="meta">
+    모델: <strong>gemini-3.5-flash</strong> · 엔드포인트: generativelanguage.googleapis.com/v1beta ·
+    이 페이지는 외부 라이브러리 없이 단일 HTML로 동작합니다. API 키는 브라우저 안에서만 사용되며 전송·저장되지 않습니다.
+  </p>
+</div>
+
+<script>
+"use strict";
+
+// ===== 설정 =====
+const MODEL = "gemini-3.5-flash"; // 무료 사용 가능 모델 (백업: gemini-3.1-flash-lite)
+const ENDPOINT =
+  `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`;
+
+// ===== DOM =====
+const $ = (id) => document.getElementById(id);
+const apiKeyEl = $("apiKey");
+const notesEl = $("notes");
+const runBtn = $("runBtn");
+const statusEl = $("status");
+const resultEl = $("result");
+const summaryBox = $("summaryBox");
+const actionBody = $("actionBody");
+const rawBox = $("rawBox");
+
+// ===== 키 보기/숨기기 =====
+$("toggleKey").addEventListener("click", () => {
+  const showing = apiKeyEl.type === "text";
+  apiKeyEl.type = showing ? "password" : "text";
+  $("toggleKey").textContent = showing ? "보기" : "숨기기";
+});
+
+// ===== 예시 회의록 =====
+const SAMPLE = `[2026년 2분기 신제품 출시 준비 회의]
+일시: 2026-06-19 14:00 / 참석: 김민수 팀장, 이서연 대리, 박지훈 사원, 최유진 주임
+
+1. 마케팅 진행 상황
+- 이서연 대리가 다음 주 금요일(6/26)까지 SNS 광고 시안 3안을 만들어 공유하기로 함.
+- 인플루언서 협업은 박지훈 사원이 7월 첫째 주까지 후보 리스트업.
+
+2. 제품/물류
+- 김민수 팀장: 생산팀과 출고 일정 6/30까지 최종 확정 협의.
+- 재고 시스템 오류는 최유진 주임이 이번 주 내로 IT팀에 정식 티켓 등록.
+
+3. 결정 사항
+- 출시일은 7월 15일로 잠정 확정. 변동 시 6/30 회의에서 재논의.
+- 다음 회의는 6월 26일 동일 시간.
+
+기타: 예산 초과분은 추후 재무팀 검토 필요(담당 미정).`;
+
+$("loadSample").addEventListener("click", () => {
+  notesEl.value = SAMPLE;
+  notesEl.focus();
+});
+
+// ===== 상태 표시 헬퍼 =====
+function setStatus(msg, type) {
+  statusEl.textContent = msg;
+  statusEl.className = "status " + (type || "");
+}
+function clearStatus() {
+  statusEl.textContent = "";
+  statusEl.className = "status";
+}
+
+// ===== 프롬프트 설계 (구조화 JSON 출력 유도) =====
+function buildPrompt(notes) {
+  return `당신은 한국 기업의 회의록을 분석하는 전문 비서입니다.
+아래 회의록을 읽고, 회의 요약과 실행해야 할 액션 아이템을 정리하세요.
+
+[작성 규칙]
+1. summary: 회의의 핵심 내용을 한국어 2~3문장으로 요약합니다.
+2. actionItems: 실제로 누군가 "행동해야 하는 할 일"만 뽑습니다. 단순 공유/보고 내용은 제외합니다.
+   - task: 무엇을 해야 하는지 동사로 끝나는 간결한 한 문장 (예: "SNS 광고 시안 3안 작성")
+   - owner: 담당자 이름. 회의록에 명시가 없으면 "미정"
+   - due: 마감 기한. 날짜가 있으면 "2026-06-26"처럼 표기, 상대적이면 "이번 주 내" 등 원문 표현 사용, 없으면 "미정"
+3. 회의록에 없는 내용을 지어내지 마세요. 액션 아이템이 하나도 없으면 actionItems는 빈 배열([])로 둡니다.
+
+[출력 형식]
+반드시 아래 JSON 형식 "하나만" 출력하세요. 코드블록 표시(\`\`\`)나 설명 문장을 절대 덧붙이지 마세요.
+{
+  "summary": "회의 요약 문장",
+  "actionItems": [
+    { "task": "할 일", "owner": "담당자", "due": "기한" }
+  ]
+}
+
+[회의록]
+${notes}`;
+}
+
+// ===== Gemini 응답 텍스트에서 JSON 안전 추출 =====
+function parseModelJson(text) {
+  if (!text || typeof text !== "string") {
+    throw new Error("모델이 빈 응답을 반환했습니다.");
+  }
+  let s = text.trim();
+  // ```json ... ``` 코드펜스 제거
+  s = s.replace(/^```(?:json)?\s*/i, "").replace(/\s*```$/i, "").trim();
+  // 가장 바깥 중괄호 범위만 취함 (앞뒤 잡설 방어)
+  const first = s.indexOf("{");
+  const last = s.lastIndexOf("}");
+  if (first !== -1 && last !== -1 && last > first) {
+    s = s.slice(first, last + 1);
+  }
+  return JSON.parse(s);
+}
+
+// ===== HTML 이스케이프 (XSS 방지) =====
+function esc(v) {
+  return String(v == null ? "" : v)
+    .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+// ===== 결과 렌더링 =====
+let lastResultForCopy = "";
+
+function renderResult(parsed) {
+  const summary = parsed.summary || "(요약 없음)";
+  const items = Array.isArray(parsed.actionItems) ? parsed.actionItems : [];
+
+  summaryBox.textContent = summary;
+
+  actionBody.innerHTML = "";
+  if (items.length === 0) {
+    actionBody.innerHTML =
+      `<tr><td colspan="3" class="empty-cell">추출된 액션 아이템이 없습니다.</td></tr>`;
+  } else {
+    for (const it of items) {
+      const tr = document.createElement("tr");
+      const owner = it.owner && it.owner.trim() ? it.owner : "미정";
+      const due = it.due && it.due.trim() ? it.due : "미정";
+      tr.innerHTML =
+        `<td class="col-task">${esc(it.task)}</td>` +
+        `<td class="col-owner">${esc(owner)}</td>` +
+        `<td class="col-due">${esc(due)}</td>`;
+      actionBody.appendChild(tr);
+    }
+  }
+
+  // 복사용 텍스트 구성
+  let txt = "■ 회의 요약\n" + summary + "\n\n■ 액션 아이템\n";
+  if (items.length === 0) {
+    txt += "- (없음)\n";
+  } else {
+    items.forEach((it, i) => {
+      txt += `${i + 1}. ${it.task || ""} / 담당: ${it.owner || "미정"} / 기한: ${it.due || "미정"}\n`;
+    });
+  }
+  lastResultForCopy = txt;
+
+  resultEl.style.display = "block";
+}
+
+// ===== 복사 =====
+$("copyBtn").addEventListener("click", async () => {
+  try {
+    await navigator.clipboard.writeText(lastResultForCopy);
+    $("copyBtn").textContent = "복사됨 ✓";
+    setTimeout(() => ($("copyBtn").textContent = "결과 텍스트로 복사"), 1500);
+  } catch {
+    setStatus("클립보드 복사에 실패했습니다. 결과를 직접 선택해 복사해주세요.", "err");
+  }
+});
+
+// ===== 메인 호출 =====
+async function run() {
+  clearStatus();
+  resultEl.style.display = "none";
+
+  const apiKey = apiKeyEl.value.trim();
+  const notes = notesEl.value.trim();
+
+  // 입력 검증
+  if (!apiKey) {
+    setStatus("API 키를 먼저 입력하세요. (aistudio.google.com/apikey 에서 무료 발급)", "err");
+    apiKeyEl.focus();
+    return;
+  }
+  if (!notes) {
+    setStatus("회의록 내용을 붙여넣으세요.", "err");
+    notesEl.focus();
+    return;
+  }
+
+  // 로딩 상태
+  runBtn.disabled = true;
+  runBtn.innerHTML = `<span class="spinner"></span>AI가 분석 중입니다...`;
+  setStatus("Gemini API에 요청을 보내는 중입니다. 잠시만 기다려주세요.", "ok");
+
+  const requestBody = {
+    contents: [{ parts: [{ text: buildPrompt(notes) }] }],
+    generationConfig: {
+      temperature: 0.2,
+      // JSON 출력 안정화: 모델에 JSON MIME 타입 강제
+      responseMimeType: "application/json"
+    }
+  };
+
+  try {
+    const res = await fetch(ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "x-goog-api-key": apiKey
+      },
+      body: JSON.stringify(requestBody)
+    });
+
+    // HTTP 에러 처리
+    if (!res.ok) {
+      let detail = "";
+      try {
+        const errJson = await res.json();
+        detail = errJson?.error?.message || "";
+      } catch { /* 본문 파싱 실패 무시 */ }
+
+      let friendly;
+      if (res.status === 400) friendly = "요청 형식 오류 또는 API 키가 올바르지 않습니다.";
+      else if (res.status === 403) friendly = "API 키 권한이 없거나 잘못된 키입니다. 키를 다시 확인하세요.";
+      else if (res.status === 429) friendly = "무료 사용 한도(분당/일일 요청)를 초과했습니다. 잠시 후 다시 시도하세요.";
+      else if (res.status >= 500) friendly = "Gemini 서버 일시 오류입니다. 잠시 후 다시 시도하세요.";
+      else friendly = `요청이 실패했습니다 (HTTP ${res.status}).`;
+
+      throw new Error(friendly + (detail ? `\n상세: ${detail}` : ""));
+    }
+
+    const data = await res.json();
+    rawBox.textContent = JSON.stringify(data, null, 2);
+
+    // 안전 차단(safety) 등으로 후보가 없을 수 있음
+    const cand = data?.candidates?.[0];
+    if (!cand) {
+      const blockReason = data?.promptFeedback?.blockReason;
+      throw new Error(
+        blockReason
+          ? `응답이 차단되었습니다 (사유: ${blockReason}). 회의록 내용을 확인해주세요.`
+          : "모델이 응답 후보를 반환하지 않았습니다. 잠시 후 다시 시도하세요."
+      );
+    }
+
+    // 응답 텍스트 위치: candidates[0].content.parts[0].text
+    const text = cand?.content?.parts?.[0]?.text;
+    if (!text) {
+      const finish = cand?.finishReason;
+      throw new Error(
+        finish
+          ? `응답이 완성되지 않았습니다 (종료 사유: ${finish}).`
+          : "응답에서 텍스트를 찾지 못했습니다."
+      );
+    }
+
+    // JSON 파싱
+    let parsed;
+    try {
+      parsed = parseModelJson(text);
+    } catch (e) {
+      throw new Error(
+        "AI 응답을 표로 변환하지 못했습니다(형식 오류). '원본 응답(JSON) 보기'에서 내용을 확인할 수 있습니다."
+      );
+    }
+
+    renderResult(parsed);
+    clearStatus();
+
+  } catch (err) {
+    // 네트워크 오류 vs 그 외
+    const msg = (err && err.message) ? err.message : String(err);
+    if (msg === "Failed to fetch" || /NetworkError/i.test(msg)) {
+      setStatus("네트워크 오류로 호출에 실패했습니다. 인터넷 연결을 확인하세요.", "err");
+    } else {
+      setStatus(msg, "err");
+    }
+  } finally {
+    runBtn.disabled = false;
+    runBtn.innerHTML = "✦ 액션아이템 추출하기";
+  }
+}
+
+runBtn.addEventListener("click", run);
+
+// Ctrl/Cmd + Enter 로 실행
+notesEl.addEventListener("keydown", (e) => {
+  if ((e.metaKey || e.ctrlKey) && e.key === "Enter") run();
+});
+</script>
+</body>
+</html>

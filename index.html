@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LG인화원 AX 리더 세미나</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23A50034'/%3E%3Ctext x='50%25' y='52%25' font-family='Arial' font-size='13' font-weight='700' fill='white' text-anchor='middle' dominant-baseline='middle'%3ELG%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles/main.css">
+</head>
+<body>
+
+<!-- Scroll Progress -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- Hamburger (mobile) -->
+<button class="hamburger" id="hamburger" aria-label="메뉴 열기">
+  <span class="hamburger-icon"><i data-lucide="book-open"></i></span>
+  <span class="hamburger-close"><i data-lucide="x"></i></span>
+</button>
+
+<!-- Sidebar Overlay (mobile) -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<!-- Sidebar -->
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <button class="sidebar-collapse-btn" id="sidebarCollapseBtn" onclick="toggleSidebarCollapse()" aria-label="사이드바 접기">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="11 17 6 12 11 7"></polyline><polyline points="18 17 13 12 18 7"></polyline></svg>
+    </button>
+    <a class="sidebar-logo" href="#home" onclick="closeMobile()">
+      <div class="sidebar-logo-text">
+        <span class="sidebar-logo-title">LG인화원 AX 세미나</span>
+        <span class="sidebar-logo-sub" id="sidebarDateLocation">2026.06.23 · 06.25</span>
+      </div>
+    </a>
+  </div>
+  <div class="sidebar-nav" id="sidebarNav">
+    <!-- Dynamically generated -->
+  </div>
+  <div class="sidebar-footer"></div>
+  <div class="sidebar-resize-handle" id="sidebarResizeHandle"></div>
+</nav>
+
+<button class="sidebar-expand-btn" id="sidebarExpandBtn" onclick="toggleSidebarCollapse()" aria-label="사이드바 펼치기">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 17 18 12 13 7"></polyline><polyline points="6 17 11 12 6 7"></polyline></svg>
+</button>
+
+<!-- Main Content -->
+<main class="main">
+  <div class="main-topbar" id="topbar">
+    <div class="breadcrumb" id="breadcrumb">
+      <a href="#home">Home</a>
+    </div>
+    <div class="topbar-actions">
+      <div class="font-size-controls">
+        <button class="font-btn" onclick="changeFontSize(-1)">A-</button>
+        <div class="font-btn-divider"></div>
+        <button class="font-btn" onclick="resetFontSize()" title="기본값" style="font-size:0.65rem;letter-spacing:-0.02em">기본</button>
+        <div class="font-btn-divider"></div>
+        <button class="font-btn" onclick="changeFontSize(1)">A+</button>
+      </div>
+    </div>
+  </div>
+  <div class="main-content" id="mainContent">
+    <!-- Dynamically rendered -->
+  </div>
+</main>
+
+<!-- Mobile Bottom Nav -->
+<div class="mobile-bottom-nav" id="mobileNav">
+  <button class="mobile-nav-btn" onclick="location.hash='#home'">
+    <span class="nav-icon"><i data-lucide="home"></i></span>Home
+  </button>
+  <button class="mobile-nav-btn" id="mobilePrev" onclick="navigatePrev()">
+    <span class="nav-icon"><i data-lucide="chevron-left"></i></span>이전
+  </button>
+  <button class="mobile-nav-btn" id="mobileNext" onclick="navigateNext()">
+    <span class="nav-icon"><i data-lucide="chevron-right"></i></span>다음
+  </button>
+</div>
+
+<!-- FAB -->
+<div class="fab" id="fab">
+  <div class="fab-menu">
+    <a class="fab-item" href="#ch04-clip01"><i data-lucide="folder-down" class="menu-icon"></i> 실습자료 다운로드</a>
+    <a class="fab-item" href="#ch00-clip01"><i data-lucide="calendar" class="menu-icon"></i> 시간표</a>
+    <a class="fab-item" href="#ch01-clip02"><i data-lucide="download" class="menu-icon"></i> 설치 가이드</a>
+    <a class="fab-item" href="#ch04-clip02"><i data-lucide="book-open-text" class="menu-icon"></i> 참고 링크</a>
+  </div>
+  <button class="fab-main" onclick="toggleFab()"><i data-lucide="zap"></i></button>
+</div>
+
+<script type="module" src="/js/app.js"></script>
+</body>
+</html>

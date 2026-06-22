@@ -1,0 +1,265 @@
+/* ========================================
+   PRINT STYLES
+   ======================================== */
+@media print {
+  .sidebar, .hamburger, .sidebar-overlay, .mobile-bottom-nav,
+  .fab, .main-topbar, .scroll-progress, .clip-nav-footer { display: none !important; }
+  .main { margin-left: 0 !important; }
+  .main-content { max-width: 100%; padding: 20px; }
+  .prompt-block { break-inside: avoid; }
+  body { font-size: 11pt; }
+}
+
+/* ========================================
+   PRINT VIEW — Screen + Print Styles
+   ======================================== */
+
+/* === page-print 모드: 사이드바/topbar 숨김 === */
+.page-print .sidebar,
+.page-print .hamburger,
+.page-print .sidebar-overlay,
+.page-print .sidebar-expand-btn,
+.page-print .mobile-bottom-nav,
+.page-print .fab,
+.page-print .main-topbar,
+.page-print .scroll-progress,
+.page-print .lms-panel,
+.page-print .panel-overlay,
+.page-print .fclass-overlay,
+.page-print .fclass-modal { display: none !important; }
+
+.page-print .main { margin-left: 0 !important; }
+
+/* === Print View 레이아웃 === */
+.print-view {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 32px;
+  font-family: 'Noto Sans KR', sans-serif;
+  line-height: 1.8;
+  color: #1a1a1a;
+}
+
+/* 표지 */
+.print-cover {
+  text-align: center;
+  padding: 100px 0 80px;
+  border-bottom: 3px solid #A50034;
+  margin-bottom: 40px;
+}
+.print-cover h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+  color: #A50034;
+}
+.print-cover-sub {
+  font-size: 1.1rem;
+  color: var(--brand-gray);
+  margin-top: 12px;
+}
+.print-cover-meta {
+  font-size: 0.85rem;
+  color: var(--brand-silver);
+  margin-top: 24px;
+}
+
+/* 목차 */
+.print-toc {
+  margin-bottom: 60px;
+  padding: 24px 32px;
+  background: var(--bg-offwhite);
+  border-radius: 8px;
+}
+.print-toc h2 {
+  font-size: 1.2rem;
+  margin-bottom: 16px;
+  color: #A50034;
+}
+.print-toc > ul {
+  list-style: none;
+  padding: 0;
+}
+.print-toc > ul > li {
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+}
+.print-toc > ul > li > ul {
+  list-style: disc;
+  padding-left: 24px;
+  margin-top: 4px;
+}
+.print-toc > ul > li > ul > li {
+  font-size: 0.82rem;
+  color: var(--brand-gray);
+  margin-bottom: 2px;
+}
+.print-toc-time {
+  font-size: 0.78rem;
+  color: var(--brand-silver);
+  margin-left: 8px;
+}
+
+/* 챕터 */
+.print-chapter {
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 2px solid var(--border);
+}
+.print-chapter:first-of-type { border-top: none; }
+.print-chapter-header {
+  margin-bottom: 32px;
+}
+.print-chapter-num {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #fff;
+  background: #A50034;
+  padding: 2px 10px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+.print-chapter-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 8px 0 4px;
+  color: var(--text-heading);
+}
+.print-chapter-time {
+  font-size: 0.82rem;
+  color: var(--brand-silver);
+}
+
+/* 클립 */
+.print-clip {
+  margin-bottom: 36px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--bg-offwhite);
+}
+.print-clip:last-child { border-bottom: none; }
+.print-clip-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.print-clip-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--text-body);
+}
+.print-clip-type {
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+/* 개념 카드 (평면화) */
+.print-concept-card {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin-bottom: 12px;
+}
+.print-concept-header {
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+.print-concept-def {
+  font-size: 0.85rem;
+  color: var(--brand-gray);
+  margin-bottom: 8px;
+  font-style: italic;
+}
+.print-concept-detail {
+  font-size: 0.85rem;
+  line-height: 1.7;
+  margin-bottom: 8px;
+}
+.print-concept-examples {
+  font-size: 0.8rem;
+  color: var(--brand-gray);
+  background: var(--bg-offwhite);
+  padding: 8px 12px;
+  border-radius: 4px;
+}
+
+/* Print View에서 기존 요소 오버라이드 */
+.print-view .news-filters { display: none; }
+.print-view .news-card { display: block !important; }
+.print-view #toolSearch { display: none; }
+.print-view .tool-item { display: flex !important; }
+.print-view .concept-card {
+  transform: none !important;
+  cursor: default;
+}
+.print-view .concept-card-inner {
+  transform: none !important;
+  transform-style: flat;
+}
+.print-view .concept-card-front,
+.print-view .concept-card-back {
+  position: static !important;
+  backface-visibility: visible !important;
+}
+.print-view .concept-card-back {
+  border-top: 1px solid var(--border);
+  padding-top: 12px;
+  margin-top: 8px;
+}
+.print-view .tech-tree-node {
+  cursor: default;
+}
+
+/* Credits page */
+.print-credits {
+  page-break-before: always;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  text-align: center;
+}
+.print-credits-inner {
+  max-width: 400px;
+}
+.print-credits-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+}
+.print-credits-company {
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  color: var(--text-heading);
+}
+.print-credits-person {
+  font-size: 0.9rem;
+  color: var(--text-body);
+  margin-bottom: 8px;
+}
+.print-credits-contact {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+/* @media print 확장 */
+@media print {
+  .print-cover { page-break-after: always; }
+  .print-toc { page-break-after: always; }
+  .print-chapter { page-break-before: always; }
+  .print-clip { break-inside: avoid; }
+  .print-concept-card { break-inside: avoid; }
+  .prompt-block { break-inside: avoid; }
+  .tip-block { break-inside: avoid; }
+  .comparison-table { break-inside: avoid; }
+
+  .print-view { padding: 0; max-width: 100%; }
+  body { font-size: 10pt; }
+}

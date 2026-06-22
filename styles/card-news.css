@@ -1,0 +1,61 @@
+/* ========================================
+   CARD NEWS
+   ======================================== */
+.news-filters {
+  display: flex; gap: 8px; margin-bottom: 20px;
+}
+
+.news-filter-btn {
+  padding: 6px 16px; border-radius: 100px;
+  border: 1px solid var(--border); background: var(--bg-white);
+  font-size: 0.75rem; font-weight: 500; color: var(--text-secondary);
+  cursor: pointer; transition: all var(--transition);
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.news-filter-btn:hover { border-color: var(--brand); color: var(--brand); }
+.news-filter-btn.active { background: var(--brand); color: #fff; border-color: var(--brand); }
+
+.news-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.news-card {
+  background: var(--bg-white);
+  border-radius: var(--radius);
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--brand);
+  transition: all var(--transition);
+  cursor: pointer; text-decoration: none; color: inherit;
+  display: block;
+}
+
+.news-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.news-card-cat {
+  font-size: 0.62rem; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.05em; margin-bottom: 6px;
+}
+
+.news-card-cat.business { color: var(--brand); }
+.news-card-cat.technology { color: var(--brand-gold); }
+.news-card-cat.policy { color: var(--brand-gold); }
+
+.news-card-headline {
+  font-size: 0.88rem; font-weight: 600; color: var(--text-heading);
+  margin-bottom: 8px; line-height: 1.4;
+}
+
+.news-card-insight {
+  font-size: 0.78rem; color: var(--text-secondary); line-height: 1.6;
+}
+
+.news-card-footer {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-top: 10px; font-size: 0.65rem; color: var(--text-muted);
+}

@@ -1,0 +1,128 @@
+/* ========================================
+   CLIP PAGE
+   ======================================== */
+.clip-header {
+  margin-bottom: 32px;
+}
+
+.clip-badges {
+  display: flex; align-items: center; gap: 8px; margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.clip-badge {
+  font-size: 0.65rem; font-weight: 600; padding: 3px 10px;
+  border-radius: 100px; letter-spacing: 0.02em;
+}
+
+.clip-badge.time { background: var(--bg-offwhite); color: var(--text-secondary); }
+.clip-badge.chapter { background: var(--brand-light); color: var(--brand); }
+.clip-badge.type-concept { background: rgba(133, 113, 77, 0.06); color: var(--brand-gold); }
+.clip-badge.type-platform { background: rgba(133, 113, 77, 0.04); color: var(--brand-gold); }
+.clip-badge.type-practice { background: rgba(133, 113, 77, 0.06); color: var(--brand-gold); }
+.clip-badge.type-reference { background: var(--bg-offwhite); color: var(--text-secondary); }
+.clip-badge.type-demo { background: var(--brand-light); color: var(--brand); }
+
+.clip-title {
+  font-size: 1.6rem; font-weight: 700; color: var(--text-heading);
+  letter-spacing: -0.03em; line-height: 1.3;
+}
+
+.clip-overview {
+  margin-top: 12px; font-size: 0.92rem; color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* ========================================
+   CLIP NAVIGATION FOOTER
+   ======================================== */
+.clip-nav-footer {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-top: 48px; padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+
+.clip-nav-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 20px; border-radius: var(--radius-sm);
+  background: var(--bg-white); border: 1px solid var(--border);
+  font-size: 0.82rem; font-weight: 500; color: var(--text-body);
+  cursor: pointer; transition: all var(--transition);
+  text-decoration: none;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.clip-nav-btn:hover {
+  border-color: var(--brand); color: var(--brand);
+  box-shadow: var(--shadow-sm);
+}
+
+.clip-nav-btn.disabled {
+  opacity: 0.3; pointer-events: none;
+}
+
+/* ========================================
+   BOOKMARK STAR
+   ======================================== */
+.bookmark-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  cursor: pointer; transition: all var(--transition);
+  font-size: 1.2rem; color: var(--border);
+}
+
+.bookmark-btn:hover { color: var(--brand); }
+.bookmark-btn.bookmarked { color: var(--brand-active); }
+
+/* ========================================
+   TYPE BADGE - OVERVIEW
+   ======================================== */
+.clip-badge.type-overview { background: rgba(165, 0, 52, 0.04); color: var(--brand); }
+
+/* ========================================
+   PRACTICE SHORTCUT BAR
+   ======================================== */
+.practice-shortcut-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  margin-bottom: 24px;
+  background: rgba(133, 113, 77, 0.06);
+  border: 1px solid rgba(133, 113, 77, 0.2);
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  color: var(--brand-gold);
+}
+
+.practice-shortcut-text {
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.practice-shortcut-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: auto;
+  font-weight: 600;
+  color: var(--brand);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color var(--transition);
+}
+
+.practice-shortcut-link:hover {
+  color: var(--brand-hover);
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .practice-shortcut-bar {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .practice-shortcut-link {
+    margin-left: 0;
+    width: 100%;
+  }
+}

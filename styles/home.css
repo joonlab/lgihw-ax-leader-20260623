@@ -1,0 +1,184 @@
+/* ========================================
+   HOME PAGE
+   ======================================== */
+.home-hero {
+  text-align: center; padding: 48px 0 40px;
+}
+
+.home-logo-wrap {
+  display: inline-flex; align-items: center; justify-content: center;
+  margin-bottom: 20px;
+}
+
+.home-logo-wrap svg { width: 72px; height: 72px; }
+
+.home-title {
+  font-size: 2rem; font-weight: 700; color: var(--text-heading);
+  letter-spacing: -0.03em; margin-bottom: 8px;
+}
+
+.home-subtitle {
+  font-size: 1rem; color: var(--text-secondary); font-weight: 300;
+  margin-bottom: 6px;
+}
+
+.home-meta {
+  display: flex; align-items: center; justify-content: center; gap: 16px;
+  font-size: 0.82rem; color: var(--text-muted); margin-top: 12px;
+}
+
+.home-meta-item {
+  display: flex; align-items: center; gap: 5px;
+}
+
+.home-meta-dot {
+  width: 4px; height: 4px; border-radius: 50%; background: var(--border);
+}
+
+/* Timeline */
+.timeline-section {
+  margin: 32px 0;
+}
+
+.timeline-label {
+  font-size: 0.72rem; font-weight: 500; color: var(--text-muted);
+  text-transform: uppercase; letter-spacing: 0.08em;
+  margin-bottom: 12px;
+}
+
+.timeline-bar {
+  display: flex; border-radius: var(--radius); overflow-x: auto;
+  background: var(--bg-white); box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border);
+}
+
+.timeline-block {
+  display: flex; flex-direction: column; align-items: center;
+  justify-content: center; padding: 14px 6px; cursor: pointer;
+  transition: all var(--transition);
+  border-right: 1px solid rgba(203,200,194,0.3);
+  position: relative;
+  text-decoration: none;
+  min-width: 64px;
+}
+
+.timeline-block:last-child { border-right: none; }
+
+.timeline-block:hover {
+  background: var(--brand-light);
+}
+
+.timeline-block.now {
+  background: var(--brand);
+  color: #fff;
+}
+
+.timeline-block.now .tl-time,
+.timeline-block.now .tl-name { color: #fff; }
+
+.timeline-block .tl-time {
+  font-size: 0.6rem; font-weight: 500; color: var(--text-muted);
+  margin-bottom: 3px;
+}
+
+.timeline-block .tl-name {
+  font-size: 0.68rem; font-weight: 500; color: var(--text-heading);
+  text-align: center; line-height: 1.3;
+  max-width: 100%; word-break: keep-all;
+}
+
+.timeline-block .tl-type {
+  font-size: 0.55rem; color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.timeline-lunch {
+  background: var(--bg-offwhite);
+  opacity: 0.7;
+}
+
+/* Chapter Cards Grid */
+.chapters-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 16px; margin-top: 32px;
+}
+
+.chapter-card {
+  background: var(--bg-white);
+  border-radius: var(--radius);
+  padding: 20px;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: all var(--transition);
+  text-decoration: none; color: inherit;
+  display: flex; flex-direction: column;
+  position: relative; overflow: hidden;
+}
+
+.chapter-card::before {
+  content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+  width: 3px; background: var(--brand);
+  transform: scaleY(0); transition: transform var(--transition);
+  transform-origin: bottom;
+}
+
+.chapter-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+  border-color: rgba(165, 0, 52,0.2);
+}
+
+.chapter-card:hover::before { transform: scaleY(1); }
+
+.chapter-card-top {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.chapter-card-num {
+  font-size: 0.65rem; font-weight: 700; color: var(--brand);
+  background: var(--brand-light); padding: 3px 8px;
+  border-radius: 4px; letter-spacing: 0.05em;
+}
+
+.chapter-card-time {
+  font-size: 0.65rem; color: var(--text-muted);
+}
+
+.chapter-card-title {
+  font-size: 0.95rem; font-weight: 600; color: var(--text-heading);
+  margin-bottom: 6px; letter-spacing: -0.01em;
+}
+
+.chapter-card-desc {
+  font-size: 0.78rem; color: var(--text-secondary); line-height: 1.5;
+  flex: 1;
+}
+
+.chapter-card-clips {
+  display: flex; align-items: center; gap: 4px;
+  margin-top: 12px; font-size: 0.68rem; color: var(--text-muted);
+}
+
+/* Quick Access */
+.quick-access {
+  display: flex; gap: 10px; margin-top: 32px; flex-wrap: wrap;
+  justify-content: center;
+}
+
+.quick-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 10px 18px; border-radius: 100px;
+  background: var(--bg-white); border: 1px solid var(--border);
+  font-size: 0.78rem; font-weight: 500; color: var(--text-body);
+  cursor: pointer; transition: all var(--transition);
+  text-decoration: none;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.quick-btn:hover {
+  border-color: var(--brand); color: var(--brand);
+  box-shadow: var(--shadow-sm);
+}
+
+.quick-btn .q-icon { font-size: 1rem; }

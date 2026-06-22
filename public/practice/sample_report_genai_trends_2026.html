@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>생성형 AI 업무활용 트렌드 2026</title>
+<style>
+  :root{
+    --ink:#1a1f29;
+    --muted:#5b6472;
+    --line:#e4e7ec;
+    --bg:#f6f7f9;
+    --card:#ffffff;
+    --brand:#A50034;          /* LG Red */
+    --brand-soft:#fbeef2;
+    --accent:#1f6feb;
+    --good:#1a7f54;
+    --warn:#b4690e;
+    --chip:#eef1f5;
+    --shadow:0 1px 2px rgba(16,24,40,.06),0 8px 24px rgba(16,24,40,.06);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:"Pretendard","Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",
+      -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    color:var(--ink);
+    background:var(--bg);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:980px;margin:0 auto;padding:0 22px;}
+
+  /* ---------- Header ---------- */
+  header.hero{
+    background:
+      radial-gradient(120% 140% at 88% -10%, rgba(165,0,52,.16), transparent 55%),
+      linear-gradient(180deg,#101521,#1a2233);
+    color:#fff;
+    padding:54px 0 46px;
+  }
+  .hero .wrap{position:relative;}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:13px;font-weight:600;letter-spacing:.04em;
+    color:#ffd7e2;background:rgba(165,0,52,.28);
+    border:1px solid rgba(255,255,255,.16);
+    padding:6px 13px;border-radius:999px;margin-bottom:18px;
+  }
+  .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:#ff5c87;}
+  h1.title{
+    font-size:38px;line-height:1.2;margin:0 0 12px;font-weight:800;letter-spacing:-.02em;
+  }
+  .subtitle{font-size:17px;color:#c4ccd9;max-width:680px;margin:0;}
+  .meta-row{
+    display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:26px;
+    font-size:13.5px;color:#aab4c4;
+  }
+  .meta-row b{color:#e7ecf3;font-weight:600;}
+
+  /* ---------- Executive summary ---------- */
+  section.summary{margin-top:-26px;padding-bottom:8px;}
+  .summary-card{
+    background:var(--card);border:1px solid var(--line);border-radius:16px;
+    box-shadow:var(--shadow);padding:30px 30px 24px;
+  }
+  .summary-card h2{
+    margin:0 0 6px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--brand);font-weight:700;
+  }
+  .summary-card .lead{font-size:18.5px;font-weight:700;margin:0 0 16px;line-height:1.5;}
+  .summary-grid{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:6px;
+  }
+  .sum-item{
+    background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:14px 16px;
+  }
+  .sum-item h3{margin:0 0 4px;font-size:14.5px;color:var(--ink);}
+  .sum-item p{margin:0;font-size:13.5px;color:var(--muted);}
+
+  /* ---------- KPI strip ---------- */
+  .kpis{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:26px 0 6px;
+  }
+  .kpi{
+    background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:18px 16px;box-shadow:var(--shadow);text-align:left;
+  }
+  .kpi .num{font-size:30px;font-weight:800;color:var(--brand);letter-spacing:-.02em;line-height:1.1;}
+  .kpi .lbl{font-size:12.5px;color:var(--muted);margin-top:6px;}
+
+  /* ---------- Trend sections ---------- */
+  section.trends{padding:40px 0 10px;}
+  .section-head{margin:8px 0 18px;}
+  .section-head h2{font-size:24px;font-weight:800;margin:0;letter-spacing:-.01em;}
+  .section-head .hint{color:var(--muted);font-size:14px;margin:6px 0 0;}
+
+  .group-label{
+    display:flex;align-items:center;gap:12px;margin:30px 0 14px;
+  }
+  .group-label span{
+    font-size:13px;font-weight:700;letter-spacing:.08em;color:var(--muted);
+    text-transform:uppercase;white-space:nowrap;
+  }
+  .group-label::after{content:"";flex:1;height:1px;background:var(--line);}
+
+  .card{
+    background:var(--card);border:1px solid var(--line);border-radius:14px;
+    box-shadow:var(--shadow);padding:24px 26px;margin-bottom:16px;position:relative;
+    border-left:4px solid var(--brand);
+  }
+  .card.kr{border-left-color:var(--accent);}
+  .card-top{display:flex;align-items:flex-start;gap:14px;}
+  .badge-no{
+    flex:none;width:38px;height:38px;border-radius:10px;
+    background:var(--brand-soft);color:var(--brand);
+    font-weight:800;font-size:16px;display:flex;align-items:center;justify-content:center;
+  }
+  .card.kr .badge-no{background:#e9f1fe;color:var(--accent);}
+  .card h3{margin:2px 0 0;font-size:19px;font-weight:750;line-height:1.4;letter-spacing:-.01em;}
+  .tag{
+    display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.03em;
+    padding:3px 9px;border-radius:6px;margin-bottom:8px;
+    background:var(--chip);color:var(--muted);
+  }
+  .tag.kr{background:#e9f1fe;color:var(--accent);}
+  .card p.body{margin:12px 0 0;font-size:15px;color:#2b3340;}
+  .card p.body b{color:var(--ink);}
+
+  .stat-pills{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 0;}
+  .pill{
+    font-size:13px;font-weight:600;padding:5px 11px;border-radius:8px;
+    background:var(--brand-soft);color:var(--brand);border:1px solid #f3d4de;
+  }
+  .card.kr .pill{background:#eaf2fe;color:var(--accent);border-color:#d4e4fd;}
+
+  .source{
+    display:flex;align-items:center;gap:8px;margin-top:16px;padding-top:13px;
+    border-top:1px dashed var(--line);font-size:13px;
+  }
+  .source .ic{
+    flex:none;width:18px;height:18px;border-radius:5px;background:var(--chip);
+    color:var(--muted);font-size:11px;font-weight:700;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .source .label{color:var(--muted);font-weight:600;}
+  .source a{color:var(--accent);text-decoration:none;word-break:break-all;}
+  .source a:hover{text-decoration:underline;}
+  .ref-sup{
+    font-size:11px;font-weight:700;color:#fff;background:var(--brand);
+    border-radius:5px;padding:1px 6px;margin-left:6px;vertical-align:middle;
+  }
+  .card.kr .ref-sup{background:var(--accent);}
+
+  /* ---------- Table ---------- */
+  .table-wrap{
+    background:var(--card);border:1px solid var(--line);border-radius:14px;
+    box-shadow:var(--shadow);overflow:hidden;margin:8px 0 4px;
+  }
+  table{width:100%;border-collapse:collapse;font-size:14px;}
+  thead th{
+    background:#101521;color:#e7ecf3;text-align:left;font-weight:600;
+    padding:13px 16px;font-size:13px;letter-spacing:.02em;
+  }
+  tbody td{padding:12px 16px;border-top:1px solid var(--line);color:#2b3340;}
+  tbody tr:nth-child(even) td{background:#fafbfc;}
+  tbody td b{color:var(--brand);}
+
+  /* ---------- References ---------- */
+  section.refs{padding:34px 0 60px;}
+  .refs-card{
+    background:var(--card);border:1px solid var(--line);border-radius:14px;
+    box-shadow:var(--shadow);padding:26px 28px;
+  }
+  .refs-card h2{font-size:20px;margin:0 0 4px;font-weight:800;}
+  .refs-card .note{color:var(--muted);font-size:13.5px;margin:0 0 18px;}
+  ol.reflist{margin:0;padding:0;list-style:none;counter-reset:r;}
+  ol.reflist li{
+    counter-increment:r;position:relative;padding:12px 0 12px 44px;
+    border-top:1px solid var(--line);font-size:14px;
+  }
+  ol.reflist li:first-child{border-top:none;}
+  ol.reflist li::before{
+    content:counter(r);position:absolute;left:0;top:12px;
+    width:28px;height:28px;border-radius:8px;background:var(--brand-soft);
+    color:var(--brand);font-weight:700;font-size:13px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  ol.reflist .org{font-weight:700;color:var(--ink);}
+  ol.reflist .desc{color:var(--muted);}
+  ol.reflist a{color:var(--accent);text-decoration:none;word-break:break-all;}
+  ol.reflist a:hover{text-decoration:underline;}
+
+  footer.foot{
+    border-top:1px solid var(--line);background:#fff;
+    padding:24px 0;color:var(--muted);font-size:13px;
+  }
+  footer.foot .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;}
+  .disclaimer{
+    background:var(--brand-soft);border:1px solid #f3d4de;border-radius:12px;
+    padding:14px 18px;font-size:13px;color:#7a2740;margin:22px 0 0;
+  }
+  .disclaimer b{color:var(--brand);}
+
+  @media (max-width:720px){
+    h1.title{font-size:29px;}
+    .summary-grid,.kpis{grid-template-columns:1fr 1fr;}
+    .kpi .num{font-size:25px;}
+    .card{padding:20px 18px;}
+  }
+  @media print{
+    body{background:#fff;}
+    .card,.summary-card,.refs-card,.table-wrap,.kpi{box-shadow:none;}
+    header.hero{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== HERO ===================== -->
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow"><span class="dot"></span>AI 트렌드 리서치 리포트 · 2026</span>
+    <h1 class="title">생성형 AI 업무활용 트렌드 2026</h1>
+    <p class="subtitle">
+      답변 도구에서 <b style="color:#ffd7e2;">실행 주체</b>로 — 에이전틱 AI 시대의 도입 현황,
+      현실의 벽, 그리고 인프라·한국 시장의 변화를 신뢰 출처 기반으로 정리했습니다.
+    </p>
+    <div class="meta-row">
+      <span>발행 <b>2026년 6월 19일</b></span>
+      <span>대상 <b>LG인화원 AX 리더 세미나</b></span>
+      <span>출처 <b>McKinsey · Gartner · Deloitte · Microsoft · SK AX · 삼성SDS</b></span>
+      <span>트렌드 <b>10건</b> · 참고문헌 <b>9건</b></span>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== EXECUTIVE SUMMARY ===================== -->
+<section class="summary">
+  <div class="wrap">
+    <div class="summary-card">
+      <h2>Executive Summary · 핵심 요약</h2>
+      <p class="lead">
+        2026년은 ‘에이전틱 AI(자율 에이전트)의 원년’이다. 생성형 AI가 질문에 답하는 도구를 넘어,
+        스스로 목표를 세우고 업무를 대신 수행하는 <b>실행 주체</b>로 전환되고 있다.
+      </p>
+      <div class="summary-grid">
+        <div class="sum-item">
+          <h3>① 전환의 방향</h3>
+          <p>‘답변하는 AI’ → ‘일을 대신하는 AI’. 글로벌 88%가 AI를 상시 사용하고, 에이전트는 초기 배포 단계에 진입했다.</p>
+        </div>
+        <div class="sum-item">
+          <h3>② 현실의 벽</h3>
+          <p>도입은 넓어졌으나 손익 기여는 낮다. 에이전트 프로덕션 11%, EBIT 영향 보고는 39%에 그친다. 관건은 <b>워크플로 재설계와 리더십</b>.</p>
+        </div>
+        <div class="sum-item">
+          <h3>③ 인프라의 제약</h3>
+          <p>추론 비용과 전력이 새로운 병목. 데이터센터 전력 수요 +26%, 클라우드 단일 모델에서 <b>하이브리드</b>로 전환 중.</p>
+        </div>
+        <div class="sum-item">
+          <h3>④ 한국의 특수성</h3>
+          <p>생성형 AI 사용률 37.1%로 세계 최고 성장세. 삼성SDS·SK 등 <b>산업별 실무형 에이전트</b> 상용화가 본격화됐다.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- KPI strip -->
+    <div class="kpis">
+      <div class="kpi"><div class="num">88%</div><div class="lbl">1개 이상 업무영역에서 AI 상시 사용 (글로벌, ’25.11)<span class="ref-sup">2</span></div></div>
+      <div class="kpi"><div class="num">11%</div><div class="lbl">AI 에이전트를 실제 운영(프로덕션)에 올린 비율<span class="ref-sup">3</span></div></div>
+      <div class="kpi"><div class="num">+26%</div><div class="lbl">2026년 데이터센터 전력 수요 증가율 (565TWh)<span class="ref-sup">4</span></div></div>
+      <div class="kpi"><div class="num">37.1%</div><div class="lbl">한국 생성형 AI 사용률 (’26 1분기, 세계 최고 성장)<span class="ref-sup">7</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TRENDS ===================== -->
+<section class="trends">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>2026 생성형 AI 업무활용 10대 트렌드</h2>
+      <p class="hint">각 트렌드는 신뢰 가능한 출처의 수치와 함께 정리했으며, 카드 하단에 원문 링크를 명시했습니다.</p>
+    </div>
+
+    <!-- GROUP A -->
+    <div class="group-label"><span>A. 에이전틱 AI — 도입과 현실</span></div>
+
+    <!-- Trend 1 -->
+    <article class="card">
+      <div class="card-top">
+        <div class="badge-no">1</div>
+        <div>
+          <span class="tag">에이전틱 AI · 도입</span>
+          <h3>에이전틱 AI, ‘호기심’에서 ‘초기 배포’로 — 그러나 아직 좁다</h3>
+        </div>
+      </div>
+      <p class="body">
+        McKinsey 2025년 11월 <i>State of AI</i> 조사에서 응답자의 <b>62%가 AI 에이전트를 최소한 실험 중</b>이고,
+        <b>23%는 1개 이상 업무영역에서 에이전틱 AI를 스케일링</b>했다고 답했다. 다만 아직 광범위하지는 않아,
+        특정 업무영역 스케일링 응답은 최대 10% 수준이며 IT(서비스데스크)·지식관리(딥리서치)에 집중돼 있다.
+      </p>
+      <div class="stat-pills">
+        <span class="pill">62% 에이전트 실험 중</span>
+        <span class="pill">23% 스케일링</span>
+        <span class="pill">집중 영역: IT · 지식관리</span>
+      </div>
+      <div class="source">
+        <span class="ic">↗</span><span class="label">출처<span class="ref-sup">1</span> McKinsey — The State of AI</span>
+        <a href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai" target="_blank" rel="noopener">mckinsey.com/.../the-state-of-ai</a>
+      </div>
+    </article>
+
+    <!-- Trend 2 -->
+    <article class="card">
+      <div class="card-top">
+        <div class="badge-no">2</div>
+        <div>
+          <span class="tag">도입 격차 · 가치</span>
+          <h3>광범위한 AI 도입 vs. 정체된 전사 가치 — ‘스케일링 갭’</h3>
+        </div>
+      </div>
+      <p class="body">
+        2025년 11월 기준 <b>88%의 조직이 1개 이상 업무영역에서 AI를 상시 사용</b>(전년 78% ↑)하지만,
+        약 2/3는 전사 차원의 스케일링을 시작하지 못했다. <b>EBIT(영업이익) 영향을 보고한 비율은 39%</b>에 그쳤고,
+        그마저 대부분 “5% 미만”이라 답했다 — 넓은 도입과 실제 손익 기여 사이의 격차가 핵심 과제다.
+      </p>
+      <div class="stat-pills">
+        <span class="pill">88% 상시 사용 (78% → 88%)</span>
+        <span class="pill">EBIT 영향 보고 39%</span>
+        <span class="pill">대부분 “5% 미만”</span>
+      </div>
+      <div class="source">
+        <span class="ic">↗</span><span class="label">출처<span class="ref-sup">1</span> McKinsey — The State of AI</span>
+        <a href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai" target="_blank" rel="noopener">mckinsey.com/.../the-state-of-ai</a>
+      </div>
+    </article>
+
+    <!-- Trend 3 -->
+    <article class="card">
+      <div class="card-top">
+        <div class="badge-no">3</div>
+        <div>
+          <span class="tag">고성과 기업 · 리더십</span>
+          <h3>고성과 기업의 비결은 워크플로 재설계와 과감한 리더십</h3>
+        </div>
+      </div>
+      <p class="body">
+        McKinsey는 AI ‘고성과 기업’(EBIT의 5%+를 AI에 귀속, 약 6%)이 <b>개별 워크플로를 근본적으로 재설계했을 확률이
+        동료 대비 약 3배</b> 높다고 분석했다. 동반 보고서 <i>Superagency in the Workplace</i>는 병목이 직원이 아니라
+        리더십임을 강조한다 — <b>92% 기업이 3년간 AI 투자 확대 계획</b>이지만, 자사가 ‘성숙’ 단계라 본 리더는 1%에 불과하다.
+      </p>
+      <div class="stat-pills">
+        <span class="pill">워크플로 재설계 확률 약 3배</span>
+        <span class="pill">92% 투자 확대 계획</span>
+        <span class="pill">‘성숙’ 단계 인식 1%</span>
+      </div>
+      <div class="source">
+        <span class="ic">↗</span><span class="label">출처<span class="ref-sup">1·2</span> McKinsey — State of AI / Superagency</span>
+        <a href="https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/superagency-in-the-workplace-empowering-people-to-unlock-ais-full-potential-at-work" target="_blank" rel="noopener">mckinsey.com/.../superagency-in-the-workplace</a>
+      </div>
+    </article>
+
+    <!-- Trend 4 -->
+    <article class="card">
+      <div class="card-top">
+        <div class="badge-no">4</div>
+        <div>
+          <span class="tag">현실 점검 · 리스크</span>
+          <h3>에이전틱 AI 현실 점검 — 파일럿↔운영 격차와 ‘40% 실패’ 전망</h3>
+        </div>
+      </div>
+      <p class="body">
+        Deloitte <i>2026 Tech Trends</i>에 따르면 <b>38%가 AI 에이전트를 파일럿 중이지만 실제 운영에 올린 비율은 11%</b>에
+        불과하다(42%는 전략 수립 중, 35%는 전략 없음). 보고서는 <b>“2027년까지 에이전틱 AI 프로젝트의 40%가 실패”</b>라는
+        Gartner 전망을 인용하며, 원인은 기술이 아니라 망가진 프로세스를 그대로 자동화한 데 있다고 지적한다 —
+        “자동화 말고 재설계하라”.
+      </p>
+      <div class="stat-pills">
+        <span class="pill">파일럿 38% → 운영 11%</span>
+        <span class="pill">2027년 40% 실패 전망</span>
+        <span class="pill">전략 없음 35%</span>
+      </div>
+      <div class="source">
+        <span class="ic">↗</span><span class="label">출처<span class="ref-sup">3</span> Deloitte — Tech Trends 2026</span>
+        <a href="https://www2.deloitte.com/us/en/insights/focus/tech-trends.html" target="_blank" rel="noopener">deloitte.com/.../tech-trends</a>
+      </div>
+    </article>
+
+    <!-- GROUP B -->
+    <div class="group-label"><span>B. 인프라 — 비용·전력·과대평가</span></div>
+
+    <!-- Trend 5 -->
+    <article class="card">
+      <div class="card-top">
+        <div class="badge-no">5</div>
+        <div>
+          <span class="tag">인프라 · 비용</span>
+          <h3>AI 인프라 정산(Reckoning) — 추론 비용이 하이브리드 재구축을 강제</h3>
+        </div>
+      </div>
+      <p class="body">
+        Deloitte는 <b>토큰 비용이 2년 새 280배 하락</b>했음에도 AI 사용량이 더 빠르게 폭증해, 일부 기업의 월 추론 비용이
+        수천만 달러에 달한다고 본다. 클라우드 우선 인프라가 AI 경제성을 감당하지 못하면서, 기업은 탄력성은 클라우드·
+        일관성은 온프레미스·즉시성은 엣지로 가는 <b>전략적 하이브리드로 전환</b>하고 있다(운영모델 변화가 없다는 IT 리더는 단 1%).
+      </p>
+      <div class="stat-pills">
+        <span class="pill">토큰 비용 2년간 280배 ↓</span>
+        <span class="pill">하이브리드 인프라 전환</span>
+        <span class="pill">변화 없음 응답 1%</span>
+      </div>
+      <div class="source">
+        <span class="ic">↗</span><span class="label">출처<span class="ref-sup">3</span> Deloitte — Tech Trends 2026</span>
+        <a href="https://www2.deloitte.com/us/en/insights/focus/tech-trends.html" target="_blank" rel="noopener">deloitte.com/.../tech-trends</a>
+      </div>
+    </article>
+
+    <!-- Trend 6 -->
+    <article class="card">
+      <div class="card-top">
+        <div class="badge-no">6</div>
+        <div>
+          <span class="tag">전력 · 데이터센터</span>
+          <h3>AI는 이제 ‘전력 제약’ 산업 — 데이터센터 전력수요 2026년 26% ↑</h3>
+        </div>
+      </div>
+      <p class="body">
+        Gartner는 <b>2026년 글로벌 데이터센터 전력 소비가 26% 증가해 565TWh</b>(2025년 447TWh)에 이를 것으로 전망한다.
+        AI 최적화 서버가 2026년 데이터센터 전력의 31%를 차지하고 2027년에는 일반 서버를 추월하며,
+        <b>전력 가용성이 AI 용량의 새로운 병목</b>이 된다 — 전력 확보가 “AI 경쟁의 새 전장”이다.
+      </p>
+      <div class="stat-pills">
+        <span class="pill">447TWh → 565TWh</span>
+        <span class="pill">AI 서버 전력 비중 31%</span>
+        <span class="pill">전력 = 새 병목</span>
+      </div>
+      <div class="source">
+        <span class="ic">↗</span><span class="label">출처<span class="ref-sup">4</span> Gartner Newsroom (2026-06-10)</span>
+        <a href="https://www.gartner.com/en/newsroom/press-releases/2026-06-10-gartner-says-data-center-electricity-demand-to-grow-26-percent-in-2026" target="_blank" rel="noopener">gartner.com/.../data-center-electricity-demand-26-percent</a>
+      </div>
+    </article>
+
+    <!-- Trend 7 -->
+    <article class="card">
+      <div class="card-top">
+        <div class="badge-no">7</div>
+        <div>
+          <span class="tag">과대평가 경고 · 리스크</span>
+          <h3>생성형 AI 과대평가 경고 — 레거시 현대화의 70%가 실패 전망</h3>
+        </div>
+      </div>
+      <p class="body">
+        Gartner는 <b>2026년 착수되는 메인프레임 이전(legacy modernization) 프로젝트의 70% 이상이 기대 성과를 내지
+        못할 것</b>으로 전망한다. 복잡한 레거시 코드를 마이그레이션하는 생성형 AI 도구의 능력을 과대평가한 탓이며,
+        2030년까지 관련 시장 벤더의 75%가 사업모델을 전환하거나 사업을 접을 것으로 봤다 — “마법 같은” AI 자동 전환에 대한 경고.
+      </p>
+      <div class="stat-pills">
+        <span class="pill">레거시 이전 70%+ 실패 전망</span>
+        <span class="pill">벤더 75% 사업모델 전환</span>
+        <span class="pill">과대평가 주의</span>
+      </div>
+      <div class="source">
+        <span class="ic">↗</span><span class="label">출처<span class="ref-sup">5</span> Gartner Newsroom (2026-06-18)</span>
+        <a href="https://www.gartner.com/en/newsroom/press-releases/2026-06-18-gartner-predicts-more-than-70-percent-of-mainframe-exit-projects-will-fail-due-to-overestimation-of-generative-ais-capabilities" target="_blank" rel="noopener">gartner.com/.../mainframe-exit-projects-will-fail</a>
+      </div>
+    </article>
+
+    <!-- GROUP C -->
+    <div class="group-label"><span>C. 한국 시장 — 성장과 실무 적용</span></div>
+
+    <!-- Trend 8 -->
+    <article class="card kr">
+      <div class="card-top">
+        <div class="badge-no">8</div>
+        <div>
+          <span class="tag kr">한국 · 시장 전망</span>
+          <h3>생성형 AI에서 ‘에이전틱 AI’로 — 기업용 시장 5년간 28배 성장 전망</h3>
+        </div>
+      </div>
+      <p class="body">
+        2026년은 AI가 수동적 도구에서 스스로 목표를 설정·계획·실행하는 자율적 문제 해결사로 진화하는 ‘에이전틱 AI의 원년’으로
+        평가된다. SK AX는 옴디아(Omdia)를 인용해 <b>기업용 AI 에이전트 SW 시장이 2025년 15억 달러 → 2030년 418억 달러로
+        약 28배</b> 성장한다고 전망했고, 가트너를 인용해 <b>2026년까지 전체 기업 애플리케이션의 40%가 작업 특화 AI 에이전트를
+        통합</b>(2025년 5% 미만 → 1년 만에 8배)할 것으로 예측했다.
+      </p>
+      <div class="stat-pills">
+        <span class="pill">$15억 → $418억 (28배)</span>
+        <span class="pill">기업 앱 40% 에이전트 통합</span>
+        <span class="pill">1년 만에 8배</span>
+      </div>
+      <div class="source">
+        <span class="ic">↗</span><span class="label">출처<span class="ref-sup">6</span> SK AX 인사이트 (2026-01-14)</span>
+        <a href="https://www.skax.co.kr/insight/trend/3624/" target="_blank" rel="noopener">skax.co.kr/insight/trend/3624</a>
+      </div>
+    </article>
+
+    <!-- Trend 9 -->
+    <article class="card kr">
+      <div class="card-top">
+        <div class="badge-no">9</div>
+        <div>
+          <span class="tag kr">한국 · 사용률</span>
+          <h3>한국 생성형 AI 사용률 37.1% — 전 세계 최고 성장세</h3>
+        </div>
+      </div>
+      <p class="body">
+        마이크로소프트 ‘AI 이코노미 인스티튜트’ 보고서에 따르면 <b>2026년 1분기 한국의 생성형 AI 사용률은 37.1%로
+        전 분기 대비 6.4%p 상승</b>, 조사 대상 경제권 중 가장 가파른 성장세를 기록했다(글로벌 순위 18위→16위).
+        특히 <b>사용자 수 증가율 43%로 세계 1위</b>(태국 36%, 일본 34% 순)였으며, 성장 상위 15개 시장 중 12개가
+        아시아에 집중되며 아시아가 AI 확산의 새 중심축으로 부상했다.
+      </p>
+      <div class="stat-pills">
+        <span class="pill">사용률 37.1% (+6.4%p)</span>
+        <span class="pill">사용자 증가율 43% 세계 1위</span>
+        <span class="pill">글로벌 순위 18→16위</span>
+      </div>
+      <div class="source">
+        <span class="ic">↗</span><span class="label">출처<span class="ref-sup">7</span> 연합뉴스 (2026-05-12)</span>
+        <a href="https://www.yna.co.kr/view/AKR20260512079000017" target="_blank" rel="noopener">yna.co.kr/view/AKR20260512079000017</a>
+      </div>
+    </article>
+
+    <!-- Trend 10 -->
+    <article class="card kr">
+      <div class="card-top">
+        <div class="badge-no">10</div>
+        <div>
+          <span class="tag kr">한국 · 실무 적용</span>
+          <h3>산업별 ‘실무형 AI 에이전트’ 도입 본격화 — 삼성SDS 사례</h3>
+        </div>
+      </div>
+      <p class="body">
+        삼성SDS는 ‘월드IT쇼 2026’(코엑스)에서 <b>제조·유통·금융·공공 등 산업군별 페르소나를 설정한 실무형 AI 에이전트
+        사례</b>를 공개했다. 공공(유해영상 분류), 제조(가상 고객 리서치), 유통·서비스(고객 상담), 금융(카드 입회 심사 자동화)
+        등 현장 과부하를 AI 에이전트가 해소하는 방식을 제시했으며, AI 에이전트 플랫폼 ‘패브릭스’와 ‘브리티 코파일럿’을
+        함께 선보였다. 핵심 메시지는 <b>“기본 실무는 AI 에이전트에 맡기고, 사람은 더 중요한 본질에 집중”</b>.
+      </p>
+      <div class="stat-pills">
+        <span class="pill">제조·유통·금융·공공 페르소나</span>
+        <span class="pill">패브릭스 · 브리티 코파일럿</span>
+        <span class="pill">현장 과부하 해소</span>
+      </div>
+      <div class="source">
+        <span class="ic">↗</span><span class="label">출처<span class="ref-sup">8</span> 전자신문 (2026-04-22)</span>
+        <a href="https://www.etnews.com/20260422000359" target="_blank" rel="noopener">etnews.com/20260422000359</a>
+      </div>
+    </article>
+
+    <!-- Quick comparison table -->
+    <div class="section-head" style="margin-top:34px;">
+      <h2 style="font-size:20px;">한눈에 보는 핵심 수치</h2>
+      <p class="hint">트렌드별 대표 지표를 요약했습니다. 자세한 맥락은 위 각 카드와 하단 참고문헌을 참조하세요.</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th style="width:42%;">지표</th><th style="width:32%;">수치</th><th>출처</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>AI 에이전트 실험 중인 조직</td><td><b>62%</b></td><td>McKinsey [1]</td></tr>
+          <tr><td>AI 상시 사용 조직 (전년 78%)</td><td><b>88%</b></td><td>McKinsey [1]</td></tr>
+          <tr><td>EBIT 영향 보고 비율 (대부분 5% 미만)</td><td><b>39%</b></td><td>McKinsey [1]</td></tr>
+          <tr><td>AI 에이전트 실제 운영(프로덕션) 비율</td><td><b>11%</b></td><td>Deloitte [3]</td></tr>
+          <tr><td>2027년까지 에이전틱 AI 프로젝트 실패 전망</td><td><b>40%</b></td><td>Gartner via Deloitte [3]</td></tr>
+          <tr><td>2026년 데이터센터 전력 수요 증가</td><td><b>+26% (565TWh)</b></td><td>Gartner [4]</td></tr>
+          <tr><td>레거시 현대화 프로젝트 실패 전망</td><td><b>70%+</b></td><td>Gartner [5]</td></tr>
+          <tr><td>기업용 AI 에이전트 시장 (’25→’30)</td><td><b>$15억 → $418억 (28배)</b></td><td>SK AX / Omdia [6]</td></tr>
+          <tr><td>한국 생성형 AI 사용률 (’26 1Q)</td><td><b>37.1% (+6.4%p)</b></td><td>연합뉴스 / MS [7]</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="disclaimer">
+      <b>본 보고서에 대하여 ·</b> 이 문서는 LG인화원 AX 리더 세미나 ‘실습③ — 자료조사 → HTML 보고서’의
+      <b>샘플 결과물</b>입니다. 실습에서 학습자는 Antigravity로 웹 자료를 직접 조사하고 출처가 포함된 보고서를
+      이와 같은 수준으로 생성하게 됩니다. 수치는 발행 시점 기준 공개 출처를 인용한 것으로, 실제 활용 시 원문 확인을 권장합니다.
+    </div>
+  </div>
+</section>
+
+<!-- ===================== REFERENCES ===================== -->
+<section class="refs">
+  <div class="wrap">
+    <div class="refs-card">
+      <h2>References · 참고문헌</h2>
+      <p class="note">아래 출처는 모두 발행 시점에 검증된 공개 자료이며, 각 항목은 원문으로 연결됩니다.</p>
+      <ol class="reflist">
+        <li>
+          <span class="org">McKinsey &amp; Company</span> — <span class="desc">The State of AI (2025년 11월 조사).</span><br>
+          <a href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai" target="_blank" rel="noopener">https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai</a>
+        </li>
+        <li>
+          <span class="org">McKinsey &amp; Company</span> — <span class="desc">Superagency in the Workplace: Empowering People to Unlock AI’s Full Potential at Work.</span><br>
+          <a href="https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/superagency-in-the-workplace-empowering-people-to-unlock-ais-full-potential-at-work" target="_blank" rel="noopener">https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/superagency-in-the-workplace-empowering-people-to-unlock-ais-full-potential-at-work</a>
+        </li>
+        <li>
+          <span class="org">Deloitte Insights</span> — <span class="desc">Tech Trends 2026 (에이전틱 AI 현실 점검 · AI 인프라 정산).</span><br>
+          <a href="https://www2.deloitte.com/us/en/insights/focus/tech-trends.html" target="_blank" rel="noopener">https://www2.deloitte.com/us/en/insights/focus/tech-trends.html</a>
+        </li>
+        <li>
+          <span class="org">Gartner</span> — <span class="desc">Gartner Says Data Center Electricity Demand to Grow 26% in 2026 (2026-06-10).</span><br>
+          <a href="https://www.gartner.com/en/newsroom/press-releases/2026-06-10-gartner-says-data-center-electricity-demand-to-grow-26-percent-in-2026" target="_blank" rel="noopener">https://www.gartner.com/en/newsroom/press-releases/2026-06-10-gartner-says-data-center-electricity-demand-to-grow-26-percent-in-2026</a>
+        </li>
+        <li>
+          <span class="org">Gartner</span> — <span class="desc">Gartner Predicts More Than 70% of Mainframe Exit Projects Will Fail Due to Overestimation of Generative AI’s Capabilities (2026-06-18).</span><br>
+          <a href="https://www.gartner.com/en/newsroom/press-releases/2026-06-18-gartner-predicts-more-than-70-percent-of-mainframe-exit-projects-will-fail-due-to-overestimation-of-generative-ais-capabilities" target="_blank" rel="noopener">https://www.gartner.com/en/newsroom/press-releases/2026-06-18-gartner-predicts-more-than-70-percent-of-mainframe-exit-projects-will-fail...</a>
+        </li>
+        <li>
+          <span class="org">SK AX</span> — <span class="desc">생성형 AI에서 에이전틱 AI로 (Omdia·Gartner 인용, 2026-01-14).</span><br>
+          <a href="https://www.skax.co.kr/insight/trend/3624/" target="_blank" rel="noopener">https://www.skax.co.kr/insight/trend/3624/</a>
+        </li>
+        <li>
+          <span class="org">연합뉴스 (Yonhap)</span> — <span class="desc">한국 생성형 AI 사용률 37.1% / Microsoft AI Economy Institute 인용 (2026-05-12).</span><br>
+          <a href="https://www.yna.co.kr/view/AKR20260512079000017" target="_blank" rel="noopener">https://www.yna.co.kr/view/AKR20260512079000017</a>
+        </li>
+        <li>
+          <span class="org">전자신문 (ETNews)</span> — <span class="desc">삼성SDS, 산업별 실무형 AI 에이전트 사례 공개 · 월드IT쇼 2026 (2026-04-22).</span><br>
+          <a href="https://www.etnews.com/20260422000359" target="_blank" rel="noopener">https://www.etnews.com/20260422000359</a>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <span>생성형 AI 업무활용 트렌드 2026 · 실습③ 샘플 HTML 보고서</span>
+    <span>LG인화원 AX 리더 세미나 · 2026-06-19</span>
+  </div>
+</footer>
+
+</body>
+</html>

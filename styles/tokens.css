@@ -1,0 +1,59 @@
+/* ========================================
+   CSS VARIABLES - LG Brand Design Tokens
+   LG Red 중심 + Neutral Gray / Premium Silver / Highlight Gold
+   ======================================== */
+:root {
+  --brand: #A50034;          /* LG Red */
+  --brand-active: #C40040;   /* 밝은 레드 (active) */
+  --brand-hover: #8A002B;    /* 짙은 레드 (hover) */
+  --brand-light: #FBEDF1;    /* 아주 옅은 레드 틴트 */
+  /* Supporting palette */
+  --brand-gray: #6B6B6B;     /* Neutral Gray */
+  --brand-silver: #8A8D8F;   /* Premium Silver */
+  --brand-gold: #85714D;     /* Highlight Gold */
+
+  --bg-warm: #F0ECE4;
+  --bg-offwhite: #F6F3EB;
+  --bg-white: #FFFFFF;
+  --bg-dark: #1B1A1E;
+  --text-heading: #262626;
+  --text-body: #333333;
+  --text-secondary: #646464;
+  --text-muted: #7E7C77;
+  --border: #CBC8C2;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --radius-lg: 16px;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 14px rgba(0,0,0,0.07), 0 2px 6px rgba(0,0,0,0.04);
+  --shadow-lg: 0 10px 30px rgba(0,0,0,0.10), 0 4px 10px rgba(0,0,0,0.04);
+  --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --sidebar-width: 280px;
+  --font-size-base: 16px;
+
+  /* Level colors — A/B/C/D/E 분반 */
+  --level-A: #8B5CF6;
+  --level-A-bg: #F5F3FF;
+  --level-B: #3B82F6;
+  --level-B-bg: #EFF6FF;
+  --level-C: #059669;
+  --level-C-bg: #ECFDF5;
+  --level-D: #D97706;
+  --level-D-bg: #FFFBEB;
+  --level-E: #DC2626;
+  --level-E-bg: #FEF2F2;
+  --level-F: #F59E0B;
+  --level-F-bg: #FFFBEB;
+
+  /* Panel */
+  --panel-width: 380px;
+  --z-panel-overlay: 105;
+  --z-panel: 110;
+  --z-lms-toolbar: 70;
+
+  /* TA Dashboard */
+  --ta-bg: #0F172A;
+  --ta-card-bg: #1E293B;
+  --ta-alert: #EF4444;
+  --ta-acknowledged: #22C55E;
+}
