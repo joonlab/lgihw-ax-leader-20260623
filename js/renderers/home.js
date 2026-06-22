@@ -59,7 +59,6 @@ export function renderHome(el) {
         <img src="https://upload.wikimedia.org/wikipedia/commons/8/8d/LG_logo_%282014%29.svg" alt="LG" style="width:72px;height:auto;">
       </div>
       <h1 class="home-title">${getCourseTitle(STATE.currentBatch)}</h1>
-      <p class="home-subtitle">${getCourseSubtitle(STATE.currentBatch)}</p>
       <div class="home-meta">
         ${(() => {
           const meta = BATCH_META[STATE.currentBatch] || BATCH_META[2];
