@@ -5,7 +5,8 @@ export const CURRICULUM = [
     desc: '오늘의 흐름과 종일 시간표, 세미나 컨셉(쉬운 자동화로 친해지고 → 내 업무로 발전), 강사 소개를 확인합니다.',
     clips: [
       { id: 'clip01', title: '오늘의 흐름 & 시간표', type: 'overview', time: '~10분' },
-      { id: 'clip02', title: '강사 소개', type: 'reference', time: '' }
+      { id: 'clip02', title: '강사 소개', type: 'reference', time: '' },
+      { id: 'clip03', title: '조 편성 & 좌석 안내', type: 'reference', time: '' }
     ]
   },
   {
