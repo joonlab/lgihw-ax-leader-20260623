@@ -7,5 +7,5 @@ export default {
   venue: 'LG인화원',
   audience: '팀장 (1차 28명 · 2차 20명)',
   brandColor: '#A50034',
-  deployUrl: ''
+  deployUrl: 'https://lgihw-ax-leader-20260623.vercel.app'
 };
