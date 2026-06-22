@@ -6,6 +6,7 @@ import { createIcons, Bot, HelpCircle, Bell, ClipboardList, BookOpen,
   MessageCircle, ThumbsUp, FileText, MapPin, Clipboard, Search,
   Keyboard, Lightbulb, Plug, PartyPopper, Newspaper, BookOpenText,
   ChartBar, Trees, Briefcase, Timer, Microscope, Sparkles, Share2,
+  Download, Monitor, FolderDown,
   ExternalLink, LayoutGrid, List, ChevronDown, X } from 'lucide';
 
 export function initIcons() {
@@ -18,6 +19,7 @@ export function initIcons() {
       MessageCircle, ThumbsUp, FileText, MapPin, Clipboard, Search,
       Keyboard, Lightbulb, Plug, PartyPopper, Newspaper, BookOpenText,
       ChartBar, Trees, Briefcase, Timer, Microscope, Sparkles, Share2,
+      Download, Monitor, FolderDown,
       ExternalLink, LayoutGrid, List, ChevronDown, X }
   });
 }
