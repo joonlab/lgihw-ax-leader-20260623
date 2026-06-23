@@ -11,6 +11,7 @@ import { renderClip } from './renderers/clip.js';
 import { initIcons } from './icons.js';
 import { applyTooltips } from './tooltip.js';
 import { setupMdEditors } from './md-editor.js';
+import { setupCopyButtons } from './copy-buttons.js';
 
 const PAGE_CLASSES = ['page-print'];
 
@@ -67,4 +68,5 @@ export async function navigate() {
   initIcons();
   try { applyTooltips(document.getElementById('mainContent')); } catch (e) { console.error('applyTooltips error:', e); }
   try { setupMdEditors(document.getElementById('mainContent')); } catch (e) { console.error('setupMdEditors error:', e); }
+  try { setupCopyButtons(document.getElementById('mainContent')); } catch (e) { console.error('setupCopyButtons error:', e); }
 }
