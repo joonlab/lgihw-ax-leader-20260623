@@ -1,3 +1,13 @@
+<div class="info-block" style="margin-bottom:16px;background:linear-gradient(135deg, var(--brand), var(--brand-hover));border:none;border-left:none;border-radius:var(--radius);padding:20px 22px;box-shadow:0 4px 16px rgba(165,0,52,0.25)">
+  <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+    <div style="flex:1;min-width:220px">
+      <div style="font-weight:800;color:#fff;font-size:1.05rem;margin-bottom:5px"><i data-lucide="folder-down" style="width:18px;height:18px;vertical-align:-3px"></i> 실습 자료는 여기서 받으세요 — 구글 드라이브</div>
+      <div style="font-size:0.84rem;color:rgba(255,255,255,0.92);line-height:1.6">복붙 프롬프트·가이드 전체를 <strong>구글 드라이브 공유 폴더</strong>에서 바로 받을 수 있습니다. 압축 해제나 한글 폴더 깨짐 걱정 없이, <strong>필요한 파일만 클릭해서</strong> 다운로드하세요.</div>
+    </div>
+    <a href="https://drive.google.com/drive/folders/1eqRHz_of43DtjdAzvujVctKiDCALcx3d" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:8px;background:#fff;color:var(--brand);border-radius:10px;padding:13px 20px;font-weight:800;font-size:0.95rem;text-decoration:none;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,0.15)"><i data-lucide="external-link" style="width:18px;height:18px"></i> 드라이브 폴더 열기</a>
+  </div>
+</div>
+
 <div class="info-block" style="margin-bottom:18px;background:linear-gradient(135deg, var(--brand-light), rgba(165,0,52,0.03));border-left:4px solid var(--brand)">
   <div style="font-size:0.85rem;color:var(--text-body);line-height:1.7">📦 오늘 실습에 쓰는 <strong>모든 자료</strong>를 여기서 받을 수 있습니다. 더미 데이터, 완성 샘플, 복붙 프롬프트까지 — 교육 중 막히거나, 끝난 뒤 혼자 복습할 때 그대로 사용하세요. (교육 당일에는 패들렛에도 함께 올라갑니다.)</div>
 </div>
@@ -28,12 +38,38 @@
       </div>
 
       <div style="display:flex;flex-direction:column;background:var(--bg-white);border:1px solid var(--border);border-radius:var(--radius);padding:18px;border-top:3px solid var(--brand)">
-        <div style="font-weight:700;color:var(--text-heading);margin-bottom:6px"><i data-lucide="clipboard-list" style="width:16px;height:16px;vertical-align:-3px;color:var(--brand)"></i> 복붙 프롬프트 팩 (zip)</div>
-        <div style="font-size:0.8rem;color:var(--text-secondary);line-height:1.6;flex:1"><strong>종합 가이드</strong> + 실습별 <strong>복붙 프롬프트 12종</strong> + Gemini API 키 발급 가이드·레퍼런스. 실습 진행의 모든 텍스트.</div>
-        <a href="/practice/practice_prompts_pack.zip" download="실습_프롬프트팩.zip" style="display:flex;align-items:center;justify-content:center;gap:7px;margin-top:14px;background:var(--brand);color:#fff;border-radius:9px;padding:12px 14px;font-weight:700;font-size:0.92rem;text-decoration:none;box-shadow:0 2px 10px rgba(165,0,52,0.28)" onmouseover="this.style.background='var(--brand-hover)'" onmouseout="this.style.background='var(--brand)'"><i data-lucide="download" style="width:17px;height:17px"></i> 다운로드</a>
+        <div style="font-weight:700;color:var(--text-heading);margin-bottom:6px"><i data-lucide="clipboard-list" style="width:16px;height:16px;vertical-align:-3px;color:var(--brand)"></i> 복붙 프롬프트 팩 <span style="font-size:0.7rem;background:var(--brand-light);color:var(--brand);padding:1px 7px;border-radius:5px;margin-left:2px">드라이브</span></div>
+        <div style="font-size:0.8rem;color:var(--text-secondary);line-height:1.6;flex:1"><strong>종합 가이드</strong> + 실습별 <strong>복붙 프롬프트 12종</strong> + Gemini API 키 발급 가이드·레퍼런스. <strong>구글 드라이브</strong>에서 파일별로 받으세요 (압축·인코딩 문제 없음).</div>
+        <a href="https://drive.google.com/drive/folders/1eqRHz_of43DtjdAzvujVctKiDCALcx3d" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;justify-content:center;gap:7px;margin-top:14px;background:var(--brand);color:#fff;border-radius:9px;padding:12px 14px;font-weight:700;font-size:0.92rem;text-decoration:none;box-shadow:0 2px 10px rgba(165,0,52,0.28)" onmouseover="this.style.background='var(--brand-hover)'" onmouseout="this.style.background='var(--brand)'"><i data-lucide="external-link" style="width:17px;height:17px"></i> 드라이브에서 열기</a>
+        <a href="/practice/practice_prompts_pack.zip" download="실습_프롬프트팩.zip" style="text-align:center;margin-top:8px;font-size:0.76rem;color:var(--text-muted);text-decoration:underline">또는 zip 한번에 받기</a>
       </div>
 
     </div>
+  </div>
+</div>
+
+<div class="clip-section" style="margin-top:6px">
+  <div class="clip-section-title">🚀 처음 한 번 — 3스텝 셋업</div>
+  <div class="clip-section-content">
+    <div style="display:flex;flex-direction:column;gap:10px;margin:6px 0">
+      <div style="background:var(--bg-offwhite);border-left:3px solid var(--brand);border-radius:8px;padding:12px 16px"><strong style="color:var(--brand)">STEP 1.</strong> 위 <strong>드라이브 폴더</strong>에서 필요한 파일을 받고, <strong>더미 데이터(zip)</strong>도 함께 내려받습니다.</div>
+      <div style="background:var(--bg-offwhite);border-left:3px solid var(--brand);border-radius:8px;padding:12px 16px"><strong style="color:var(--brand)">STEP 2.</strong> 받은 zip을 <strong>압축 해제</strong>하고, 한곳(예: 바탕화면의 <code style="background:var(--bg-white);padding:1px 6px;border-radius:4px;font-size:0.82rem">ax_practice</code> 폴더)에 모아둡니다.</div>
+      <div style="background:var(--bg-offwhite);border-left:3px solid var(--brand);border-radius:8px;padding:12px 16px"><strong style="color:var(--brand)">STEP 3.</strong> <strong>Antigravity</strong>를 열고 그 폴더를 <strong>프로젝트로 열기</strong> → 준비 끝!</div>
+    </div>
+  </div>
+</div>
+
+<div class="tip-block" style="margin-top:14px">
+  <div class="tip-block-title">🧰 실습 전 환경 체크리스트 (막힘 예방)</div>
+  <div class="tip-block-content">
+    교육 시작 전에 아래만 미리 확인하면 현장에서 막히는 일이 크게 줄어듭니다.
+    <ul style="margin:8px 0 0 0;padding-left:8px;line-height:2;list-style:none">
+      <li>✅ <strong>구글 드라이브 접근</strong> — 위 폴더가 열리고 파일이 다운로드되는지 (회사 계정이 막히면 개인 Gmail로)</li>
+      <li>✅ <strong>압축 프로그램</strong> — zip 압축 해제가 되는지 (Windows 기본 탐색기로도 가능)</li>
+      <li>✅ <strong>파일 업로드/다운로드 허용</strong> — 보안 팝업이 뜨면 <strong>'허용'</strong>을 눌러야 진행됩니다</li>
+      <li>✅ <strong>미리보기(localhost) 실행</strong> — 만든 <code style="background:var(--bg-white);padding:1px 6px;border-radius:4px;font-size:0.82rem">.html</code>이 브라우저에서 열리는지</li>
+      <li>✅ <strong>Antigravity 설치 완료</strong> — <a href="#ch04-clip02" style="color:var(--brand);font-weight:600">설치 가이드</a> 참고</li>
+    </ul>
   </div>
 </div>
 

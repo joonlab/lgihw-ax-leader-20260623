@@ -78,7 +78,20 @@
   </div>
 </div>
 
-<div class="tip-block warning" style="margin-top:18px">
+<div class="tip-block" style="margin-top:18px">
+  <div class="tip-block-title">✅ 막힐 때 체크포인트 & 무료 한도(쿼터)</div>
+  <div class="tip-block-content">
+    결과가 안 나오면 순서대로 확인하세요 — 대부분 여기서 풀립니다.
+    <ul style="margin:8px 0 0 0;padding-left:20px;line-height:1.9">
+      <li><strong>키 형식</strong>: 입력한 키가 <code style="background:var(--bg-white);padding:1px 6px;border-radius:4px;font-size:0.82rem">AIza…</code>로 시작하고, <strong>앞뒤 공백 없이</strong> 붙었는지.</li>
+      <li><strong>모델명</strong>: 코드의 모델이 <code style="background:var(--bg-white);padding:1px 6px;border-radius:4px;font-size:0.82rem">gemini-3.5-flash</code>인지 (오타·구버전명이면 호출 실패).</li>
+      <li><strong>무료 한도(429)</strong>: 무료 키는 <strong>분당 요청 수에 제한</strong>이 있어, <strong>여러 명이 동시에</strong> 누르면 <code style="background:var(--bg-white);padding:1px 6px;border-radius:4px;font-size:0.82rem">429</code>(한도 초과)가 납니다. <strong>1~2분 뒤 다시</strong> 누르거나, 옆 사람과 <strong>시차를 두고</strong> 실행하세요.</li>
+      <li><strong>그래도 안 되면</strong>: 브라우저 <code style="background:var(--bg-white);padding:1px 6px;border-radius:4px;font-size:0.82rem">F12</code> → Console 탭의 빨간 오류 메시지를 그대로 <strong>Antigravity에 붙여넣고 "고쳐줘"</strong>라고 하면 됩니다.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="tip-block warning" style="margin-top:14px">
   <div class="tip-block-title">⚠️ API 키는 비밀번호입니다 — 절대 공유 금지</div>
   <div class="tip-block-content">
     발급한 키는 <strong>비밀번호와 동급의 개인정보</strong>입니다. 채팅·메일·캡처로 <strong>타인에게 공유하지 마세요</strong>. 화면 공유 시 키 입력란이 노출될 수 있으니 주의하고, GitHub 등 공개 코드에 절대 올리지 마세요. 이 웹앱은 단일 HTML이라 입력한 키가 <strong>본인 브라우저 안에서만</strong> 쓰이고 어떤 서버에도 저장·전송되지 않습니다. 보안이 걱정되면 실습 후 AI Studio에서 해당 키를 삭제해도 됩니다.
